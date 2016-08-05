@@ -1,10 +1,13 @@
 package com.getlosthere.apps.peep.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import com.codepath.apps.peep.R;
 import com.getlosthere.apps.peep.adapters.TweetsAdapter;
@@ -22,10 +25,8 @@ import cz.msebera.android.httpclient.Header;
 
 public class TimelineActivity extends AppCompatActivity {
     private TwitterClient client;
-//    private TweetsArrayAdapter adapter;
     private TweetsAdapter adapter;
     private ArrayList<Tweet> tweets;
-//    private ListView lvTweets;
     private RecyclerView rvTweets;
 
     @Override
@@ -38,11 +39,13 @@ public class TimelineActivity extends AppCompatActivity {
     }
 
     private void setupView(){
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setLogo(R.drawable.peep);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
+
         rvTweets = (RecyclerView) findViewById(R.id.rvTweets);
         tweets = new ArrayList<>();
-//        adapter = new TweetsArrayAdapter(this, tweets);
         adapter = new TweetsAdapter(this, tweets);
-//        lvTweets.setAdapter(adapter);
         rvTweets.setAdapter(adapter);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         rvTweets.setLayoutManager(linearLayoutManager);
@@ -54,6 +57,28 @@ public class TimelineActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.timeline_menu, menu);
+        return true;
+    }
+
+    private void launchComposeMessage(){
+        Intent i;
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle presses on the action bar items
+        switch (item.getItemId()) {
+            case R.id.miComposeTweet:
+                launchComposeMessage();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
     private void populateTimeline() {
         int curSize = adapter.getItemCount(); // for endless scroll maybe?
         long maxId = curSize > 0 ? tweets.get(curSize - 1).getUid() : 1;
@@ -61,7 +86,6 @@ public class TimelineActivity extends AppCompatActivity {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
 //                Log.d("DEBUG",response.toString());
-              //  adapter.addAll(Tweet.fromJSONArray(response));
                 int curSize = adapter.getItemCount();
                 ArrayList<Tweet> newTweets = Tweet.fromJSONArray(response);
                 tweets.addAll(newTweets);
