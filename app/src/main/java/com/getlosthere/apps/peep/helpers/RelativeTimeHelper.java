@@ -25,6 +25,17 @@ public class RelativeTimeHelper {
             e.printStackTrace();
         }
 
+        // change what is sent back to smaller format
+        if(relativeDate.contains("seconds ago")) {
+            relativeDate = relativeDate.replace("seconds ago","s");
+        } else if (relativeDate.contains("minutes ago")) {
+            relativeDate = relativeDate.replace("minutes ago","m");
+        } else if (relativeDate.contains("hours ago")) {
+            relativeDate = relativeDate.replace("hours ago","h");
+        } else if (relativeDate.contains("days ago")) {
+            relativeDate = relativeDate.replace("days ago","d");
+        }
+
         return relativeDate;
     }
 }
