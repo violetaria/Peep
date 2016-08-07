@@ -15,6 +15,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
+import butterknife.ButterKnife;
 import jp.wasabeef.picasso.transformations.RoundedCornersTransformation;
 
 /**
@@ -44,12 +45,12 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
         public ViewHolder(View itemView) {
             super(itemView);
 
-            ivProfileImage = (ImageView) itemView.findViewById(R.id.ivProfileImage);
-            tvUsername = (TextView) itemView.findViewById(R.id.tvUsername);
-            tvBody = (TextView) itemView.findViewById(R.id.tvBody);
-            tvScreenName = (TextView) itemView.findViewById(R.id.tvScreenName);
-            tvPostDate = (TextView) itemView.findViewById(R.id.tvPostDate);
-            tvLikeCount = (TextView) itemView.findViewById(R.id.tvLikeCount);
+            ivProfileImage = ButterKnife.findById(itemView,R.id.ivProfileImage);
+            tvUsername = ButterKnife.findById(itemView,R.id.tvUsername);
+            tvBody = ButterKnife.findById(itemView,R.id.tvBody);
+            tvScreenName = ButterKnife.findById(itemView,R.id.tvScreenName);
+            tvPostDate = ButterKnife.findById(itemView,R.id.tvPostDate);
+            tvLikeCount = ButterKnife.findById(itemView,R.id.tvLikeCount);
         }
     }
 

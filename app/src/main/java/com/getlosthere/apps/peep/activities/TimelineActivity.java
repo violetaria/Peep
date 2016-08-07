@@ -27,14 +27,16 @@ import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import cz.msebera.android.httpclient.Header;
 
 public class TimelineActivity extends AppCompatActivity {
     private TwitterClient client;
     private TweetsAdapter adapter;
     private ArrayList<Tweet> tweets;
-    private RecyclerView rvTweets;
-    private SwipeRefreshLayout swipeContainer;
+    @BindView(R.id.rvTweets) RecyclerView rvTweets;
+    @BindView(R.id.swipeContainer) SwipeRefreshLayout swipeContainer;
 
     private final int REQUEST_CODE_COMPOSE = 30;
     private final int REQUEST_CODE_DETAIL = 40;
@@ -43,6 +45,7 @@ public class TimelineActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timeline);
+        ButterKnife.bind(this);
         setupView();
         client = TwitterApplication.getRestClient();
         populateTimeline();
@@ -53,10 +56,8 @@ public class TimelineActivity extends AppCompatActivity {
         getSupportActionBar().setLogo(R.drawable.peep);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
 
-        rvTweets = (RecyclerView) findViewById(R.id.rvTweets);
         tweets = new ArrayList<>();
         adapter = new TweetsAdapter(this, tweets);
-        swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
 
         rvTweets.setAdapter(adapter);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
