@@ -1,3 +1,1 @@
-CHANGED,/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/org/parceler/Parceler$$Parcels.class
 CHANGED,/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/getlosthere/apps/peep/activities/DetailActivity.class
-CHANGED,/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/getlosthere/apps/peep/adapters/TweetsAdapter.class

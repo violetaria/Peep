@@ -26,7 +26,9 @@
         android:layout_toRightOf="@+id/ivProfileImage"
         android:layout_toEndOf="@+id/ivProfileImage"
         android:textStyle="bold"
-        android:textSize="14sp"/>
+        android:textSize="14sp"
+        android:textColor="@android:color/black"
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -36,7 +38,11 @@
         android:layout_toRightOf="@+id/ivProfileImage"
         android:layout_toEndOf="@+id/ivProfileImage"
         android:layout_below="@+id/tvUsername"
-        android:textSize="14dp"/>
+        android:textSize="14dp"
+        android:textColor="@android:color/black"
+        android:autoLink="all"
+        android:linksClickable="true"
+        />
 
     <TextView
         android:layout_width="wrap_content"
