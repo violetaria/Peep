@@ -33,21 +33,35 @@ package com.getlosthere.apps.peep.models;
     ]
     */
 
+import com.activeandroid.Model;
+import com.activeandroid.annotation.Column;
+import com.activeandroid.annotation.Table;
+import com.activeandroid.query.Select;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.parceler.Parcel;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by violetaria on 8/2/16.
  */
-@Parcel
-public class Tweet {
+@Table(name = "Tweets")
+@Parcel(analyze = { Tweet.class})
+public class Tweet extends Model {
+    @Column(name = "Body")
     public String body;
+
+    @Column(name = "UID", unique = true, onUniqueConflict = Column.ConflictAction.REPLACE)
     public long uid;
+
+    @Column(name = "CreatedAt")
     public String createdAt;
+
+    @Column(name = "User", onUpdate = Column.ForeignKeyAction.CASCADE, onDelete = Column.ForeignKeyAction.NO_ACTION)
     public User user;
 
     public User getUser(){
@@ -67,17 +81,38 @@ public class Tweet {
     }
 
     public Tweet(){
+        super();
+    }
 
+    public static Tweet findOrCreateFromJSONObect(JSONObject jsonObject){
+        long rid = 0;
+        try {
+            rid = jsonObject.getLong("id");
+            Tweet existingTweet = new Select().from(Tweet.class).where("uid = ?",rid).executeSingle();
+
+            if (existingTweet != null) {
+                return existingTweet;
+            } else {
+                Tweet tweet = Tweet.fromJSONObject(jsonObject);
+                tweet.save();
+                return tweet;
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return null; // ## TODO fix this
     }
 
     public static Tweet fromJSONObject(JSONObject jsonObject) {
         Tweet tweet = new Tweet();
 
         try {
+            User user = User.findOrCreateFromJson(jsonObject.getJSONObject("user"));
             tweet.body = jsonObject.getString("text");
             tweet.uid = jsonObject.getLong("id");
             tweet.createdAt = jsonObject.getString("created_at");
-            tweet.user = User.fromJSON(jsonObject.getJSONObject("user"));
+            tweet.user = user;
+            tweet.save();
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -90,7 +125,7 @@ public class Tweet {
         for(int i = 0; i < jsonArray.length(); i++){
             try {
                 JSONObject tweetJson = jsonArray.getJSONObject(i);
-                Tweet tweet = Tweet.fromJSONObject(tweetJson);
+                Tweet tweet = Tweet.findOrCreateFromJSONObect(tweetJson);
                 if (tweet != null) {
                     tweets.add(i,tweet);
                 }
@@ -100,5 +135,14 @@ public class Tweet {
             }
         }
         return tweets;
+    }
+
+    public static ArrayList<Tweet> getAll(){
+        ArrayList<Tweet> tweetArrayList = new ArrayList<Tweet>();
+        List<Tweet> tweetList = new Select().from(Tweet.class).orderBy("uid DESC").limit(200).execute();
+        for(int i = 0; i < tweetList.size(); i++) {
+            tweetArrayList.add(tweetList.get(i));
+        }
+        return tweetArrayList;
     }
 }

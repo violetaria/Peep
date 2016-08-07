@@ -8,7 +8,7 @@ import com.getlosthere.apps.peep.models.Tweet$$Parcelable;
 import com.getlosthere.apps.peep.models.User;
 import com.getlosthere.apps.peep.models.User$$Parcelable;
 
-@Generated(value = "org.parceler.ParcelAnnotationProcessor", date = "2016-08-07T11:01-0400")
+@Generated(value = "org.parceler.ParcelAnnotationProcessor", date = "2016-08-07T13:18-0400")
 @SuppressWarnings({
     "unchecked",
     "deprecation"

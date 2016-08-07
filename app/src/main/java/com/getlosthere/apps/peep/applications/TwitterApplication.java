@@ -2,6 +2,11 @@ package com.getlosthere.apps.peep.applications;
 
 import android.content.Context;
 
+import com.activeandroid.ActiveAndroid;
+import com.activeandroid.Configuration;
+import com.facebook.stetho.Stetho;
+import com.getlosthere.apps.peep.models.Tweet;
+import com.getlosthere.apps.peep.models.User;
 import com.getlosthere.apps.peep.rest_clients.TwitterClient;
 
 /*
@@ -19,6 +24,10 @@ public class TwitterApplication extends com.activeandroid.app.Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        Configuration.Builder config = new Configuration.Builder(this);
+        config.addModelClasses(Tweet.class, User.class);
+        ActiveAndroid.initialize(config.create());
+        Stetho.initializeWithDefaults(this);
         TwitterApplication.context = this;
     }
 

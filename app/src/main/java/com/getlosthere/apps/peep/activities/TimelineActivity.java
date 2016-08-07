@@ -116,17 +116,8 @@ public class TimelineActivity extends AppCompatActivity {
             client.getHomeTimeline(maxId, new JsonHttpResponseHandler() {
                 @Override
                 public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
-                    // Log.d("DEBUG",response.toString());
-                    int curSize = adapter.getItemCount();
                     ArrayList<Tweet> newTweets = Tweet.fromJSONArray(response);
-                    tweets.addAll(newTweets);
-                    adapter.notifyItemRangeInserted(curSize, newTweets.size() - 1);
-                    // Log.d("DEBUG", adapter.toString());
-
-                    // check to see if this was called from a refresh
-                    if (swipeContainer.isRefreshing()) {
-                        swipeContainer.setRefreshing(false);
-                    }
+                    loadTweetsToAdapter(adapter.getItemCount(), newTweets);
                 }
 
                 @Override
@@ -147,9 +138,20 @@ public class TimelineActivity extends AppCompatActivity {
                 }
             });
         } else {
-            Toast.makeText(this, "Check your network connection",Toast.LENGTH_LONG).show();
+            ArrayList<Tweet> dbTweets = Tweet.getAll();
+            loadTweetsToAdapter(adapter.getItemCount(),dbTweets);
+            Toast.makeText(this, "You're offline, using DB. Check your network connection",Toast.LENGTH_LONG).show();
+
+        }
+        // check to see if this was called from a refresh
+        if (swipeContainer.isRefreshing()) {
+            swipeContainer.setRefreshing(false);
         }
     }
 
+    private void loadTweetsToAdapter(int curSize, ArrayList<Tweet> newTweets){
+        tweets.addAll(newTweets);
+        adapter.notifyItemRangeInserted(curSize, newTweets.size() - 1);
+    }
 
 }
