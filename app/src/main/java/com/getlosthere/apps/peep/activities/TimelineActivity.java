@@ -2,6 +2,7 @@ package com.getlosthere.apps.peep.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -31,6 +32,8 @@ public class TimelineActivity extends AppCompatActivity {
     private TweetsAdapter adapter;
     private ArrayList<Tweet> tweets;
     private RecyclerView rvTweets;
+    private SwipeRefreshLayout swipeContainer;
+
     private final int REQUEST_CODE_COMPOSE = 30;
 
     @Override
@@ -50,12 +53,24 @@ public class TimelineActivity extends AppCompatActivity {
         rvTweets = (RecyclerView) findViewById(R.id.rvTweets);
         tweets = new ArrayList<>();
         adapter = new TweetsAdapter(this, tweets);
+        swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
+
         rvTweets.setAdapter(adapter);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         rvTweets.setLayoutManager(linearLayoutManager);
         rvTweets.addOnScrollListener(new EndlessRecyclerViewScrollListener(linearLayoutManager) {
             @Override
             public void onLoadMore(int page, int totalItemsCount) {
+                populateTimeline();
+            }
+        });
+
+        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                int curSize = adapter.getItemCount();
+                adapter.clear();
+                adapter.notifyItemRangeRemoved(0,curSize);
                 populateTimeline();
             }
         });
@@ -70,7 +85,6 @@ public class TimelineActivity extends AppCompatActivity {
     private void launchComposeMessage(){
         Intent i = new Intent(this, ComposeActivity.class);
 
-        // Need to come back in here and save the tweet
         startActivityForResult(i, REQUEST_CODE_COMPOSE);
     }
 
@@ -108,6 +122,11 @@ public class TimelineActivity extends AppCompatActivity {
                     tweets.addAll(newTweets);
                     adapter.notifyItemRangeInserted(curSize, newTweets.size() - 1);
                     // Log.d("DEBUG", adapter.toString());
+
+                    // check to see if this was called from a refresh
+                    if (swipeContainer.isRefreshing()) {
+                        swipeContainer.setRefreshing(false);
+                    }
                 }
 
                 @Override
