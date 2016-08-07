@@ -54,6 +54,10 @@
             android:name="com.getlosthere.apps.peep.activities.ComposeActivity"
             android:label="@string/title_compose_peep_activity" >
         </activity>
+        <activity
+            android:name="com.getlosthere.apps.peep.activities.DetailActivity"
+            android:label="@string/title_detail_tweet_activity" >
+        </activity>
     </application>
 
 </manifest>

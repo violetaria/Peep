@@ -7,4 +7,5 @@
     <string name="compose">Compose</string>
     <string name="peep">Peep</string>
     <string name="hint">What\'s going on?</string>
+    <string name="title_detail_tweet_activity">Peep</string>
 </resources>

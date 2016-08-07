@@ -72,6 +72,10 @@
         "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/layout/abc_action_menu_item_layout.xml"
     },
     {
+        "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/activity_detail.xml",
+        "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/src/main/res/layout/activity_detail.xml"
+    },
+    {
         "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/notification_template_media.xml",
         "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/layout/notification_template_media.xml"
     },

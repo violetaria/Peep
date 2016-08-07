@@ -64,6 +64,9 @@ public class Tweet extends Model {
     @Column(name = "User", onUpdate = Column.ForeignKeyAction.CASCADE, onDelete = Column.ForeignKeyAction.NO_ACTION)
     public User user;
 
+    @Column(name = "FavoritedCount")
+    public int favoriteCount;
+
     public User getUser(){
         return user;
     }
@@ -79,6 +82,10 @@ public class Tweet extends Model {
     public String getCreatedAt() {
         return createdAt;
     }
+
+    public int getFavoriteCount() { return favoriteCount; }
+
+    public String getFavoriteCountString() { return Integer.toString(favoriteCount); }
 
     public Tweet(){
         super();
@@ -107,12 +114,11 @@ public class Tweet extends Model {
         Tweet tweet = new Tweet();
 
         try {
-            User user = User.findOrCreateFromJson(jsonObject.getJSONObject("user"));
             tweet.body = jsonObject.getString("text");
             tweet.uid = jsonObject.getLong("id");
             tweet.createdAt = jsonObject.getString("created_at");
-            tweet.user = user;
-            tweet.save();
+            tweet.favoriteCount = jsonObject.getInt("favorite_count");
+            tweet.user = User.findOrCreateFromJson(jsonObject.getJSONObject("user"));
         } catch (JSONException e) {
             e.printStackTrace();
         }

@@ -9,11 +9,13 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.getlosthere.apps.peep.R;
 import com.getlosthere.apps.peep.adapters.TweetsAdapter;
 import com.getlosthere.apps.peep.applications.TwitterApplication;
+import com.getlosthere.apps.peep.helpers.ItemClickSupportHelper;
 import com.getlosthere.apps.peep.helpers.NetworkHelper;
 import com.getlosthere.apps.peep.listeners.EndlessRecyclerViewScrollListener;
 import com.getlosthere.apps.peep.models.Tweet;
@@ -35,6 +37,7 @@ public class TimelineActivity extends AppCompatActivity {
     private SwipeRefreshLayout swipeContainer;
 
     private final int REQUEST_CODE_COMPOSE = 30;
+    private final int REQUEST_CODE_DETAIL = 40;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +77,15 @@ public class TimelineActivity extends AppCompatActivity {
                 populateTimeline();
             }
         });
+
+        ItemClickSupportHelper.addTo(rvTweets).setOnItemClickListener(
+                new ItemClickSupportHelper.OnItemClickListener(){
+                    @Override
+                    public void onItemClicked(RecyclerView recyclerView, int position, View v){
+                        launchTweetDetail(position);
+                    }
+                }
+        );
     }
 
     @Override
@@ -88,6 +100,17 @@ public class TimelineActivity extends AppCompatActivity {
         startActivityForResult(i, REQUEST_CODE_COMPOSE);
     }
 
+    private void launchTweetDetail(int position){
+        Intent i = new Intent(this, DetailActivity.class);
+
+        Tweet tweet = tweets.get(position);
+
+        i.putExtra("tweet",Parcels.wrap(tweet));
+
+        startActivityForResult(i, REQUEST_CODE_DETAIL);
+
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK && requestCode == REQUEST_CODE_COMPOSE) {
@@ -96,6 +119,8 @@ public class TimelineActivity extends AppCompatActivity {
             adapter.notifyItemInserted(0);
             rvTweets.scrollToPosition(0);
 //            Toast.makeText(this, "Peep successful!", Toast.LENGTH_SHORT).show();
+        } else if (resultCode == RESULT_OK && requestCode == REQUEST_CODE_DETAIL) {
+            // maybe see if there are new tweets?
         }
     }
     @Override

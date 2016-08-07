@@ -6,10 +6,10 @@
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
-        android:name="com.getlosthere.apps.peep.applications.TwitterApplication"
+        android:name=".applications.TwitterApplication"
         android:allowBackup="true"
         android:icon="@drawable/peep"
         android:label="@string/app_name"
@@ -20,10 +20,12 @@
         <meta-data
             android:name="AA_DB_VERSION"
             android:value="1"/>
-        <meta-data android:name="AA_MODELS"
-                   android:value="com.getlosthere.apps.peep.models.Tweet,com.getlosthere.apps.peep.models.User" />
+        <meta-data
+            android:name="AA_MODELS"
+            android:value="com.getlosthere.apps.peep.models.Tweet,com.getlosthere.apps.peep.models.User"/>
+
         <activity
-            android:name="com.getlosthere.apps.peep.activities.LoginActivity"
+            android:name=".activities.LoginActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme">
             <intent-filter>
@@ -42,11 +44,14 @@
                     android:scheme="oauth"/>
             </intent-filter>
         </activity>
-        <activity android:name="com.getlosthere.apps.peep.activities.TimelineActivity">
+        <activity android:name=".activities.TimelineActivity">
         </activity>
-        <activity android:name="com.getlosthere.apps.peep.activities.ComposeActivity"
-                  android:label="@string/title_compose_peep_activity"
-            >
+        <activity
+            android:name=".activities.ComposeActivity"
+            android:label="@string/title_compose_peep_activity">
+        </activity>
+        <activity android:name=".activities.DetailActivity"
+            android:label="@string/title_detail_tweet_activity">
         </activity>
     </application>
 

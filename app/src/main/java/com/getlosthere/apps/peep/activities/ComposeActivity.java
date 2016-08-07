@@ -25,13 +25,15 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.parceler.Parcels;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import cz.msebera.android.httpclient.Header;
 
 public class ComposeActivity extends AppCompatActivity {
     private TwitterClient client;
-    private TextView tvLetterCount;
-    private EditText etBody;
-    private Button btnPeep;
+    @BindView(R.id.tvLetterCount) TextView tvLetterCount;
+    @BindView(R.id.etPeepBody) EditText etBody;
+    @BindView(R.id.btnPeep) Button btnPeep;
     private Tweet tweet;
     private final Activity activity = this;
     private final static int MAX_CHAR_COUNT = 140;
@@ -40,16 +42,13 @@ public class ComposeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_compose);
+        ButterKnife.bind(this);
         client = TwitterApplication.getRestClient();
 
         setupViews();
     }
 
     private void setupViews(){
-        tvLetterCount = (TextView) findViewById(R.id.tvLetterCount);
-        etBody = (EditText) findViewById(R.id.etPeepBody);
-        btnPeep = (Button) findViewById(R.id.btnPeep);
-
         tvLetterCount.setText(Integer.toString(MAX_CHAR_COUNT));
         etBody.addTextChangedListener(new TextWatcher() {
             @Override

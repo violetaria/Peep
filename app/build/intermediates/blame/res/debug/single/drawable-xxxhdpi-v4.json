@@ -88,6 +88,10 @@
         "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/drawable-xxxhdpi-v4/abc_ic_star_half_black_36dp.png"
     },
     {
+        "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/heart.png",
+        "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/src/main/res/drawable-xxxhdpi/heart.png"
+    },
+    {
         "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/abc_btn_switch_to_on_mtrl_00012.9.png",
         "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/drawable-xxxhdpi-v4/abc_btn_switch_to_on_mtrl_00012.9.png"
     },

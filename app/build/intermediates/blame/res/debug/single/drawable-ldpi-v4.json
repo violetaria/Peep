@@ -6,5 +6,9 @@
     {
         "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/compose.png",
         "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/src/main/res/drawable-ldpi/compose.png"
+    },
+    {
+        "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/heart.png",
+        "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/src/main/res/drawable-ldpi/heart.png"
     }
 ]

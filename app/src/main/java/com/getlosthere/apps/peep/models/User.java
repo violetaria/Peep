@@ -32,11 +32,12 @@ public class User extends Model {
     }
 
     public String getProfileImageUrl() {
-        return profileImageUrl;
+        String biggerImageUrl = profileImageUrl.replace("_normal","");
+        return biggerImageUrl;
     }
 
     public String getScreenName() {
-        return screenName;
+        return "@" + screenName;
     }
 
     public long getUid() {

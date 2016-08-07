@@ -39,6 +39,7 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
         public TextView tvBody;
         public TextView tvScreenName;
         public TextView tvPostDate;
+        public TextView tvLikeCount;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -48,6 +49,7 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
             tvBody = (TextView) itemView.findViewById(R.id.tvBody);
             tvScreenName = (TextView) itemView.findViewById(R.id.tvScreenName);
             tvPostDate = (TextView) itemView.findViewById(R.id.tvPostDate);
+            tvLikeCount = (TextView) itemView.findViewById(R.id.tvLikeCount);
         }
     }
 
@@ -73,16 +75,18 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
         TextView tvBody = holder.tvBody;
         TextView tvScreenName = holder.tvScreenName;
         TextView tvPostDate = holder.tvPostDate;
+        TextView tvLikeCount = holder.tvLikeCount;
 
         // set data up
         tvUsername.setText(tweet.getUser().getName());
         tvBody.setText(tweet.getBody());
-        tvScreenName.setText("@" + tweet.getUser().getScreenName());
+        tvScreenName.setText(tweet.getUser().getScreenName());
         tvPostDate.setText(RelativeTimeHelper.getRelativeTimeAgo(tweet.getCreatedAt()));
+        tvLikeCount.setText(tweet.getFavoriteCountString());
 
         // clear out old image for recycle view
         ivProfileImage.setImageResource(android.R.color.transparent);
-        Picasso.with(getContext()).load(tweet.getUser().getProfileImageUrl()).transform(new RoundedCornersTransformation(2, 2)).fit().centerInside().into(ivProfileImage);
+        Picasso.with(getContext()).load(tweet.getUser().getProfileImageUrl()).transform(new RoundedCornersTransformation(7, 7)).fit().centerInside().into(ivProfileImage);
     }
 
     @Override
