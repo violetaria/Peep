@@ -198,6 +198,8 @@
     <integer name="abc_config_activityShortDur">150</integer>
     <integer name="cancel_button_image_alpha">127</integer>
     <integer name="status_bar_notification_info_maxnum">999</integer>
+    <string name="TWITTER_CONSUMER_KEY">XPv1fSumybFKZ4XLovQB3jWLu</string>
+    <string name="TWITTER_SECRET_KEY">LTZaebC4Uemejsy09IyV0qaADgJ2H6FIV60rQGFJoq3eyBFctG</string>
     <string name="abc_action_bar_home_description">Navigate home</string>
     <string name="abc_action_bar_home_description_format">%1$s, %2$s</string>
     <string name="abc_action_bar_home_subtitle_description_format">%1$s, %2$s, %3$s</string>
@@ -230,9 +232,12 @@
     <string name="abc_shareactionprovider_share_with_application">Share with %s</string>
     <string name="abc_toolbar_collapse_description">Collapse</string>
     <string name="app_name">Peep</string>
+    <string name="compose">Compose</string>
+    <string name="hint">What\'s going on?</string>
     <string name="login_label">Connect to Twitter</string>
+    <string name="peep">Peep</string>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <string name="title_activity_timeline">Home Timeline</string>
+    <string name="title_compose_peep_activity">Compose a Peep</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>
     <style name="Animation.AppCompat.Dialog" parent="Base.Animation.AppCompat.Dialog"/>

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.codepath.apps.peep"
+<manifest package="com.getlosthere.apps.peep"
           xmlns:android="http://schemas.android.com/apk/res/android"
           android:versionCode="1"
           android:versionName="1.0">
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:name="com.getlosthere.apps.peep.applications.TwitterApplication"
@@ -41,6 +42,10 @@
             </intent-filter>
         </activity>
         <activity android:name="com.getlosthere.apps.peep.activities.TimelineActivity">
+        </activity>
+        <activity android:name="com.getlosthere.apps.peep.activities.ComposeActivity"
+                  android:label="@string/title_compose_peep_activity"
+            >
         </activity>
     </application>
 

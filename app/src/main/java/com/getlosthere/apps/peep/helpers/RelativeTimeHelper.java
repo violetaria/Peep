@@ -26,14 +26,14 @@ public class RelativeTimeHelper {
         }
 
         // change what is sent back to smaller format
-        if(relativeDate.contains("seconds ago")) {
-            relativeDate = relativeDate.replace("seconds ago","s");
-        } else if (relativeDate.contains("minutes ago")) {
-            relativeDate = relativeDate.replace("minutes ago","m");
-        } else if (relativeDate.contains("hours ago")) {
-            relativeDate = relativeDate.replace("hours ago","h");
-        } else if (relativeDate.contains("days ago")) {
-            relativeDate = relativeDate.replace("days ago","d");
+        if(relativeDate.contains("second")) {
+            relativeDate = relativeDate.replaceAll("second[s]? ago","s");
+        } else if (relativeDate.contains("minute")) {
+            relativeDate = relativeDate.replaceAll("minute[s]? ago","m");
+        } else if (relativeDate.contains("hour")) {
+            relativeDate = relativeDate.replaceAll("hour[s]? ago","h");
+        } else if (relativeDate.contains("day")) {
+            relativeDate = relativeDate.replaceAll("day[s]? ago","d");
         }
 
         return relativeDate;

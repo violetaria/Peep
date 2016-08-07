@@ -2,15 +2,17 @@ package com.getlosthere.apps.peep.models;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.parceler.Parcel;
 
 /**
  * Created by violetaria on 8/3/16.
  */
+@Parcel
 public class User {
-    private String name;
-    private long uid;
-    private String screenName;
-    private String profileImageUrl;
+    public String name;
+    public long uid;
+    public String screenName;
+    public String profileImageUrl;
 
     public String getName() {
         return name;
@@ -28,6 +30,9 @@ public class User {
         return uid;
     }
 
+    // empty constructor needed by the Parceler library
+    public User() {
+    }
 
     public static User fromJSON(JSONObject jsonObject) {
         User user = new User();

@@ -2,5 +2,9 @@
     {
         "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/menu/login.xml",
         "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/src/main/res/menu/login.xml"
+    },
+    {
+        "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/menu/timeline_menu.xml",
+        "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/src/main/res/menu/timeline_menu.xml"
     }
 ]

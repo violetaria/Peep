@@ -36,17 +36,19 @@ package com.getlosthere.apps.peep.models;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.parceler.Parcel;
 
 import java.util.ArrayList;
 
 /**
  * Created by violetaria on 8/2/16.
  */
+@Parcel
 public class Tweet {
-    private String body;
-    private long uid;
-    private String createdAt;
-    private User user;
+    public String body;
+    public long uid;
+    public String createdAt;
+    public User user;
 
     public User getUser(){
         return user;
@@ -64,7 +66,11 @@ public class Tweet {
         return createdAt;
     }
 
-    public static Tweet fromJSON(JSONObject jsonObject) {
+    public Tweet(){
+
+    }
+
+    public static Tweet fromJSONObject(JSONObject jsonObject) {
         Tweet tweet = new Tweet();
 
         try {
@@ -84,7 +90,7 @@ public class Tweet {
         for(int i = 0; i < jsonArray.length(); i++){
             try {
                 JSONObject tweetJson = jsonArray.getJSONObject(i);
-                Tweet tweet = Tweet.fromJSON(tweetJson);
+                Tweet tweet = Tweet.fromJSONObject(tweetJson);
                 if (tweet != null) {
                     tweets.add(i,tweet);
                 }

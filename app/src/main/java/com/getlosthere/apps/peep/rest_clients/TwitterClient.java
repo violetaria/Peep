@@ -3,6 +3,7 @@ package com.getlosthere.apps.peep.rest_clients;
 import android.content.Context;
 
 import com.codepath.oauth.OAuthBaseClient;
+import com.getlosthere.apps.peep.BuildConfig;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
@@ -24,27 +25,14 @@ import org.scribe.builder.api.TwitterApi;
 public class TwitterClient extends OAuthBaseClient {
     public static final Class<? extends Api> REST_API_CLASS = TwitterApi.class;
     public static final String REST_URL = "https://api.twitter.com/1.1";
-    public static final String REST_CONSUMER_KEY = "XtdWqd6oYKjDwyfFXASaus5ho";
-    public static final String REST_CONSUMER_SECRET = "VbTsuQg5XVb9xqrLpOrs54HYm4c257vGbYp1lwzHMO5bBCZv3H"; // Change this
+    public static final String REST_CONSUMER_KEY = BuildConfig.CONSUMER_KEY;
+    public static final String REST_CONSUMER_SECRET = BuildConfig.SECRET_KEY; // Change this
     public static final String REST_CALLBACK_URL = "oauth://glhpeep";
 
     public TwitterClient(Context context) {
         super(context, REST_API_CLASS, REST_URL, REST_CONSUMER_KEY, REST_CONSUMER_SECRET, REST_CALLBACK_URL);
     }
 
-//    // CHANGE THIS
-//    // DEFINE METHODS for different API endpoints here
-//    public void getInterestingnessList(AsyncHttpResponseHandler handler) {
-//        String apiUrl = getApiUrl("?nojsoncallback=1&method=flickr.interestingness.getList");
-//        // Can specify query string params directly or through RequestParams.
-//        RequestParams params = new RequestParams();
-//        params.put("format", "json");
-//        client.get(apiUrl, params, handler);
-//    }
-
-    // GET statuses/home_timeline
-    // count = 25
-    // since_id = 1
     public void getHomeTimeline(long maxId, AsyncHttpResponseHandler handler) {
         String apiUrl = getApiUrl("statuses/home_timeline.json");
         RequestParams params = new RequestParams();
@@ -53,6 +41,11 @@ public class TwitterClient extends OAuthBaseClient {
             params.put("max_id",maxId);
         }
         client.get(apiUrl, params, handler);
+    }
+
+    public void postStatusUpdate(RequestParams params, AsyncHttpResponseHandler handler) {
+        String apiUrl = getApiUrl("statuses/update.json");
+        client.post(apiUrl,params, handler);
     }
 
 	/* 1. Define the endpoint URL with getApiUrl and pass a relative path to the endpoint

@@ -166,5 +166,13 @@
     {
         "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_list_selector_disabled_holo_light.9.png",
         "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/drawable-hdpi-v4/abc_list_selector_disabled_holo_light.9.png"
+    },
+    {
+        "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/compose.png",
+        "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/src/main/res/drawable-hdpi/compose.png"
+    },
+    {
+        "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/peep.png",
+        "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/src/main/res/drawable-hdpi/peep.png"
     }
 ]
