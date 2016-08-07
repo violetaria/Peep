@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -32,6 +34,7 @@ public class ComposeActivity extends AppCompatActivity {
     private Button btnPeep;
     private Tweet tweet;
     private final Activity activity = this;
+    private final static int MAX_CHAR_COUNT = 140;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +50,24 @@ public class ComposeActivity extends AppCompatActivity {
         etBody = (EditText) findViewById(R.id.etPeepBody);
         btnPeep = (Button) findViewById(R.id.btnPeep);
 
+        tvLetterCount.setText(Integer.toString(MAX_CHAR_COUNT));
+        etBody.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                int curLength = etBody.getText().length();
+                tvLetterCount.setText(Integer.toString(MAX_CHAR_COUNT - curLength));
+            }
+        });
     }
 
     public void savePeep(View view){
