@@ -1,7 +1,11 @@
 package com.getlosthere.apps.peep.activities;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -28,16 +32,21 @@ public class DetailActivity extends AppCompatActivity {
     @BindView(R.id.tvScreenName) TextView tvScreenName;
     @BindView(R.id.tvPostDate) TextView tvPostDate;
     @BindView(R.id.tvUsername) TextView tvUsername;
-
+    @BindView(R.id.toolbar_back) TextView tvToolbarBack;
     private Tweet tweet;
+    private Activity activity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+//        toolbar.setTitle("Peep");
         setContentView(R.layout.activity_detail);
         ButterKnife.bind(this);
         tweet = Parcels.unwrap(getIntent().getParcelableExtra("tweet"));
         setupViews();
+        activity = this;
     }
 
     private void setupViews(){
@@ -64,6 +73,19 @@ public class DetailActivity extends AppCompatActivity {
         if (postDateStr != null) {
             tvPostDate.setText(postDateStr);
         }
+        tvToolbarBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                activity.finish();
+            }
+        });
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.detail_menu, menu);
+        return true;
     }
 }

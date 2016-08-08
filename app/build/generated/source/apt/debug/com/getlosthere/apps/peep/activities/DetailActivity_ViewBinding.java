@@ -22,6 +22,7 @@ public class DetailActivity_ViewBinding<T extends DetailActivity> implements Unb
     target.tvScreenName = finder.findRequiredViewAsType(source, R.id.tvScreenName, "field 'tvScreenName'", TextView.class);
     target.tvPostDate = finder.findRequiredViewAsType(source, R.id.tvPostDate, "field 'tvPostDate'", TextView.class);
     target.tvUsername = finder.findRequiredViewAsType(source, R.id.tvUsername, "field 'tvUsername'", TextView.class);
+    target.tvToolbarBack = finder.findRequiredViewAsType(source, R.id.toolbar_back, "field 'tvToolbarBack'", TextView.class);
   }
 
   @Override
@@ -35,6 +36,7 @@ public class DetailActivity_ViewBinding<T extends DetailActivity> implements Unb
     target.tvScreenName = null;
     target.tvPostDate = null;
     target.tvUsername = null;
+    target.tvToolbarBack = null;
 
     this.target = null;
   }

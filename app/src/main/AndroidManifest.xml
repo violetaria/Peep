@@ -46,12 +46,9 @@
         </activity>
         <activity android:name=".activities.TimelineActivity">
         </activity>
-        <activity
-            android:name=".activities.ComposeActivity"
-            android:label="@string/title_compose_peep_activity">
-        </activity>
         <activity android:name=".activities.DetailActivity"
-            android:label="@string/title_detail_tweet_activity">
+                  android:label="@string/title_detail_tweet_activity"
+                  android:theme="@style/DetailTheme">
         </activity>
     </application>
 

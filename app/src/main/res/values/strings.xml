@@ -8,6 +8,7 @@
     <string name="peep">Peep</string>
     <string name="hint">What\'s going on?</string>
     <string name="title_detail_tweet_activity">Peep</string>
+    <string name="back">Back</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
