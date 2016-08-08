@@ -4,16 +4,12 @@
         "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/layout/abc_select_dialog_material.xml"
     },
     {
-        "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/abc_screen_toolbar.xml",
-        "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/layout/abc_screen_toolbar.xml"
+        "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/abc_popup_menu_item_layout.xml",
+        "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/layout/abc_popup_menu_item_layout.xml"
     },
     {
         "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/notification_template_big_media_narrow.xml",
         "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/layout/notification_template_big_media_narrow.xml"
-    },
-    {
-        "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/abc_popup_menu_item_layout.xml",
-        "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/layout/abc_popup_menu_item_layout.xml"
     },
     {
         "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/abc_screen_simple.xml",
@@ -28,20 +24,20 @@
         "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/layout/abc_popup_menu_header_item_layout.xml"
     },
     {
+        "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/design_navigation_item_separator.xml",
+        "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/design/24.0.0/res/layout/design_navigation_item_separator.xml"
+    },
+    {
         "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/abc_screen_content_include.xml",
         "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/layout/abc_screen_content_include.xml"
     },
     {
-        "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/abc_activity_chooser_view_list_item.xml",
-        "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/layout/abc_activity_chooser_view_list_item.xml"
-    },
-    {
-        "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/activity_compose.xml",
-        "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/src/main/res/layout/activity_compose.xml"
-    },
-    {
         "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/abc_dialog_title_material.xml",
         "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/layout/abc_dialog_title_material.xml"
+    },
+    {
+        "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/design_layout_tab_text.xml",
+        "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/design/24.0.0/res/layout/design_layout_tab_text.xml"
     },
     {
         "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/abc_list_menu_item_checkbox.xml",
@@ -68,12 +64,12 @@
         "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/layout/abc_list_menu_item_layout.xml"
     },
     {
-        "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/abc_action_menu_item_layout.xml",
-        "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/layout/abc_action_menu_item_layout.xml"
+        "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/compose_action_bar.xml",
+        "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/src/main/res/layout/compose_action_bar.xml"
     },
     {
-        "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/activity_detail.xml",
-        "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/src/main/res/layout/activity_detail.xml"
+        "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/design_navigation_menu.xml",
+        "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/design/24.0.0/res/layout/design_navigation_menu.xml"
     },
     {
         "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/notification_template_media.xml",
@@ -84,28 +80,12 @@
         "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/src/main/res/layout/item_tweet.xml"
     },
     {
-        "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/support_simple_spinner_dropdown_item.xml",
-        "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/layout/support_simple_spinner_dropdown_item.xml"
-    },
-    {
-        "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/abc_activity_chooser_view.xml",
-        "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/layout/abc_activity_chooser_view.xml"
-    },
-    {
         "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/select_dialog_singlechoice_material.xml",
         "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/layout/select_dialog_singlechoice_material.xml"
     },
     {
         "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/abc_action_bar_view_list_nav_layout.xml",
         "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/layout/abc_action_bar_view_list_nav_layout.xml"
-    },
-    {
-        "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/abc_expanded_menu_layout.xml",
-        "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/layout/abc_expanded_menu_layout.xml"
-    },
-    {
-        "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/notification_media_cancel_action.xml",
-        "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/layout/notification_media_cancel_action.xml"
     },
     {
         "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/abc_action_mode_close_item_material.xml",
@@ -116,24 +96,8 @@
         "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/layout/abc_action_bar_up_container.xml"
     },
     {
-        "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/notification_template_big_media.xml",
-        "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/layout/notification_template_big_media.xml"
-    },
-    {
         "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/select_dialog_multichoice_material.xml",
         "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/layout/select_dialog_multichoice_material.xml"
-    },
-    {
-        "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/activity_login.xml",
-        "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/src/main/res/layout/activity_login.xml"
-    },
-    {
-        "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/notification_template_part_time.xml",
-        "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/layout/notification_template_part_time.xml"
-    },
-    {
-        "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/notification_media_action.xml",
-        "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/layout/notification_media_action.xml"
     },
     {
         "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/activity_timeline.xml",
@@ -148,12 +112,108 @@
         "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/layout/abc_action_menu_layout.xml"
     },
     {
+        "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/design_navigation_menu_item.xml",
+        "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/design/24.0.0/res/layout/design_navigation_menu_item.xml"
+    },
+    {
         "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/abc_action_bar_title_item.xml",
         "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/layout/abc_action_bar_title_item.xml"
     },
     {
+        "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/design_menu_item_action_area.xml",
+        "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/design/24.0.0/res/layout/design_menu_item_action_area.xml"
+    },
+    {
         "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/abc_alert_dialog_button_bar_material.xml",
         "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/layout/abc_alert_dialog_button_bar_material.xml"
+    },
+    {
+        "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/design_layout_tab_icon.xml",
+        "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/design/24.0.0/res/layout/design_layout_tab_icon.xml"
+    },
+    {
+        "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/abc_list_menu_item_icon.xml",
+        "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/layout/abc_list_menu_item_icon.xml"
+    },
+    {
+        "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/design_layout_snackbar_include.xml",
+        "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/design/24.0.0/res/layout/design_layout_snackbar_include.xml"
+    },
+    {
+        "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/abc_screen_toolbar.xml",
+        "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/layout/abc_screen_toolbar.xml"
+    },
+    {
+        "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/fragment_compose_dialog.xml",
+        "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/src/main/res/layout/fragment_compose_dialog.xml"
+    },
+    {
+        "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/abc_activity_chooser_view_list_item.xml",
+        "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/layout/abc_activity_chooser_view_list_item.xml"
+    },
+    {
+        "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/activity_compose.xml",
+        "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/src/main/res/layout/activity_compose.xml"
+    },
+    {
+        "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/design_navigation_item_header.xml",
+        "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/design/24.0.0/res/layout/design_navigation_item_header.xml"
+    },
+    {
+        "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/abc_action_menu_item_layout.xml",
+        "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/layout/abc_action_menu_item_layout.xml"
+    },
+    {
+        "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/activity_detail.xml",
+        "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/src/main/res/layout/activity_detail.xml"
+    },
+    {
+        "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/design_navigation_item_subheader.xml",
+        "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/design/24.0.0/res/layout/design_navigation_item_subheader.xml"
+    },
+    {
+        "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/design_navigation_item.xml",
+        "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/design/24.0.0/res/layout/design_navigation_item.xml"
+    },
+    {
+        "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/support_simple_spinner_dropdown_item.xml",
+        "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/layout/support_simple_spinner_dropdown_item.xml"
+    },
+    {
+        "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/abc_activity_chooser_view.xml",
+        "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/layout/abc_activity_chooser_view.xml"
+    },
+    {
+        "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/design_bottom_sheet_dialog.xml",
+        "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/design/24.0.0/res/layout/design_bottom_sheet_dialog.xml"
+    },
+    {
+        "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/abc_expanded_menu_layout.xml",
+        "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/layout/abc_expanded_menu_layout.xml"
+    },
+    {
+        "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/notification_media_cancel_action.xml",
+        "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/layout/notification_media_cancel_action.xml"
+    },
+    {
+        "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/notification_template_big_media.xml",
+        "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/layout/notification_template_big_media.xml"
+    },
+    {
+        "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/activity_login.xml",
+        "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/src/main/res/layout/activity_login.xml"
+    },
+    {
+        "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/notification_template_part_time.xml",
+        "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/layout/notification_template_part_time.xml"
+    },
+    {
+        "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/design_layout_snackbar.xml",
+        "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/design/24.0.0/res/layout/design_layout_snackbar.xml"
+    },
+    {
+        "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/notification_media_action.xml",
+        "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/layout/notification_media_action.xml"
     },
     {
         "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/abc_action_mode_bar.xml",
@@ -166,9 +226,5 @@
     {
         "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/abc_search_dropdown_item_icons_2line.xml",
         "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/layout/abc_search_dropdown_item_icons_2line.xml"
-    },
-    {
-        "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/abc_list_menu_item_icon.xml",
-        "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/layout/abc_list_menu_item_icon.xml"
     }
 ]

@@ -8,6 +8,10 @@
         "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/src/main/res/drawable-ldpi/compose.png"
     },
     {
+        "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/close.png",
+        "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/src/main/res/drawable-ldpi/close.png"
+    },
+    {
         "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/heart.png",
         "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/src/main/res/drawable-ldpi/heart.png"
     }

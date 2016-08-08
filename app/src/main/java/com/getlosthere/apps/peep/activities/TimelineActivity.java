@@ -2,6 +2,8 @@ package com.getlosthere.apps.peep.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -15,6 +17,7 @@ import android.widget.Toast;
 import com.getlosthere.apps.peep.R;
 import com.getlosthere.apps.peep.adapters.TweetsAdapter;
 import com.getlosthere.apps.peep.applications.TwitterApplication;
+import com.getlosthere.apps.peep.fragments.ComposeDialogFragment;
 import com.getlosthere.apps.peep.helpers.ItemClickSupportHelper;
 import com.getlosthere.apps.peep.helpers.NetworkHelper;
 import com.getlosthere.apps.peep.listeners.EndlessRecyclerViewScrollListener;
@@ -31,12 +34,14 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import cz.msebera.android.httpclient.Header;
 
-public class TimelineActivity extends AppCompatActivity {
+public class TimelineActivity extends AppCompatActivity implements ComposeDialogFragment.ComposeDialogListener{
     private TwitterClient client;
     private TweetsAdapter adapter;
     private ArrayList<Tweet> tweets;
     @BindView(R.id.rvTweets) RecyclerView rvTweets;
     @BindView(R.id.swipeContainer) SwipeRefreshLayout swipeContainer;
+    @BindView(R.id.design_bottom_sheet) RecyclerView rvBottomSheet;
+    @BindView(R.id.main_content) CoordinatorLayout coordinatorLayout;
 
     private final int REQUEST_CODE_COMPOSE = 30;
     private final int REQUEST_CODE_DETAIL = 40;
@@ -87,6 +92,8 @@ public class TimelineActivity extends AppCompatActivity {
                     }
                 }
         );
+
+        rvBottomSheet.setLayoutManager(new LinearLayoutManager(this));
     }
 
     @Override
@@ -96,9 +103,10 @@ public class TimelineActivity extends AppCompatActivity {
     }
 
     private void launchComposeMessage(){
-        Intent i = new Intent(this, ComposeActivity.class);
+        ComposeDialogFragment myDialog = new ComposeDialogFragment();
 
-        startActivityForResult(i, REQUEST_CODE_COMPOSE);
+        FragmentManager fm = getSupportFragmentManager();
+        myDialog.show(fm, "fragment_compose_dialog");
     }
 
     private void launchTweetDetail(int position){
@@ -110,6 +118,14 @@ public class TimelineActivity extends AppCompatActivity {
 
         startActivityForResult(i, REQUEST_CODE_DETAIL);
 
+    }
+
+    @Override
+    public void onFinishedComposePeepDialog(Tweet newTweet) {
+//        Tweet newTweet = (Tweet) Parcels.unwrap(data.getParcelableExtra("tweet"));
+        tweets.add(0, newTweet);
+        adapter.notifyItemInserted(0);
+        rvTweets.scrollToPosition(0);
     }
 
     @Override
