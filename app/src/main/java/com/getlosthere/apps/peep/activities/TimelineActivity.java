@@ -2,15 +2,15 @@ package com.getlosthere.apps.peep.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -42,7 +42,7 @@ public class TimelineActivity extends AppCompatActivity implements ComposeDialog
     @BindView(R.id.swipeContainer) SwipeRefreshLayout swipeContainer;
     @BindView(R.id.design_bottom_sheet) RecyclerView rvBottomSheet;
     @BindView(R.id.main_content) CoordinatorLayout coordinatorLayout;
-
+    @BindView(R.id.fab) FloatingActionButton btnFab;
     private final int REQUEST_CODE_COMPOSE = 30;
     private final int REQUEST_CODE_DETAIL = 40;
 
@@ -94,13 +94,22 @@ public class TimelineActivity extends AppCompatActivity implements ComposeDialog
         );
 
         rvBottomSheet.setLayoutManager(new LinearLayoutManager(this));
+
+        final BottomSheetBehavior behavior = BottomSheetBehavior.from(rvBottomSheet);
+
+        btnFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                launchComposeMessage();
+            }
+        });
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.timeline_menu, menu);
-        return true;
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.timeline_menu, menu);
+//        return true;
+//    }
 
     private void launchComposeMessage(){
         ComposeDialogFragment myDialog = new ComposeDialogFragment();
@@ -140,17 +149,17 @@ public class TimelineActivity extends AppCompatActivity implements ComposeDialog
             // maybe see if there are new tweets?
         }
     }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle presses on the action bar items
-        switch (item.getItemId()) {
-            case R.id.miComposeTweet:
-                launchComposeMessage();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        // Handle presses on the action bar items
+//        switch (item.getItemId()) {
+//            case R.id.miComposeTweet:
+//                launchComposeMessage();
+//                return true;
+//            default:
+//                return super.onOptionsItemSelected(item);
+//        }
+//    }
     private void populateTimeline() {
         int curSize = adapter.getItemCount(); // for endless scroll maybe?
         long maxId = curSize > 0 ? tweets.get(curSize - 1).getUid() : 1;
