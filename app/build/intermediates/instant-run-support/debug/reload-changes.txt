@@ -1,4 +1,4 @@
 CHANGED,/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/org/parceler/Parceler$$Parcels$override.class
-CHANGED,/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/getlosthere/apps/peep/activities/DetailActivity$1$override.class
-CHANGED,/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/getlosthere/apps/peep/activities/DetailActivity$override.class
+CHANGED,/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/getlosthere/apps/peep/activities/TimelineActivity$override.class
 CHANGED,/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/android/tools/fd/runtime/AppPatchesLoaderImpl.class
+CHANGED,/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/getlosthere/apps/peep/fragments/TweetsListFragment$2$override.class
