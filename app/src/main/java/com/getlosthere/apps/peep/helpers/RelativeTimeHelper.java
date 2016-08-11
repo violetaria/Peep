@@ -34,6 +34,8 @@ public class RelativeTimeHelper {
             relativeDate = relativeDate.replaceAll("hour[s]? ago","h");
         } else if (relativeDate.contains("day")) {
             relativeDate = relativeDate.replaceAll("day[s]? ago","d");
+        } else if (relativeDate.contains("month")) {
+            relativeDate = relativeDate.replaceAll("month[s]? ago","d");
         }
 
         return relativeDate;

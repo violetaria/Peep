@@ -13,7 +13,6 @@ import android.view.ViewGroup;
 
 import com.getlosthere.apps.peep.R;
 import com.getlosthere.apps.peep.activities.DetailActivity;
-import com.getlosthere.apps.peep.activities.TimelineActivity;
 import com.getlosthere.apps.peep.adapters.TweetsAdapter;
 import com.getlosthere.apps.peep.helpers.ItemClickSupportHelper;
 import com.getlosthere.apps.peep.listeners.EndlessRecyclerViewScrollListener;
@@ -29,12 +28,14 @@ import butterknife.ButterKnife;
 /**
  * Created by violetaria on 8/9/16.
  */
-public class TweetsListFragment extends Fragment {
-    private TweetsAdapter adapter;
-    private ArrayList<Tweet> tweets;
+public abstract class TweetsListFragment extends Fragment {
+    public TweetsAdapter adapter;
+    public ArrayList<Tweet> tweets;
     @BindView(R.id.rvTweets) RecyclerView rvTweets;
     @BindView(R.id.swipeContainer) SwipeRefreshLayout swipeContainer;
     private final int REQUEST_CODE_DETAIL = 40;
+
+    abstract void populateTimeline(long maxId);
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -48,7 +49,6 @@ public class TweetsListFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         tweets = new ArrayList<>();
-
     }
 
     private void setupView(View view){
@@ -57,25 +57,6 @@ public class TweetsListFragment extends Fragment {
         rvTweets.setAdapter(adapter);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         rvTweets.setLayoutManager(linearLayoutManager);
-        rvTweets.addOnScrollListener(new EndlessRecyclerViewScrollListener(linearLayoutManager) {
-            @Override
-            public void onLoadMore(int page, int totalItemsCount) {
-                int curSize = adapter.getItemCount(); // for endless scroll maybe?
-                long maxId = curSize > 0 ? tweets.get(curSize - 1).getUid() : 1;
-                ((TimelineActivity)getActivity()).populateTimeline(maxId);
-            }
-        });
-
-        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                int curSize = adapter.getItemCount();
-                adapter.clear();
-                adapter.notifyItemRangeRemoved(0,curSize);
-                ((TimelineActivity)getActivity()).populateTimeline(1);
-                swipeContainer.setRefreshing(false);
-            }
-        });
 
         ItemClickSupportHelper.addTo(rvTweets).setOnItemClickListener(
                 new ItemClickSupportHelper.OnItemClickListener(){
@@ -85,6 +66,26 @@ public class TweetsListFragment extends Fragment {
                     }
                 }
         );
+
+        rvTweets.addOnScrollListener(new EndlessRecyclerViewScrollListener(linearLayoutManager) {
+            @Override
+            public void onLoadMore(int page, int totalItemsCount) {
+                int curSize = adapter.getItemCount(); // for endless scroll maybe?
+                long maxId = curSize > 0 ? tweets.get(curSize - 1).getUid() : 1;
+                populateTimeline(maxId);
+            }
+        });
+
+        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                int curSize = adapter.getItemCount();
+                adapter.clear();
+                adapter.notifyItemRangeRemoved(0,curSize);
+                populateTimeline(1);
+                swipeContainer.setRefreshing(false);
+            }
+        });
 
     }
 
@@ -109,7 +110,7 @@ public class TweetsListFragment extends Fragment {
 
     public void addAll(ArrayList<Tweet> newTweets) {
         int curSize = adapter.getItemCount();
-        this.tweets.addAll(newTweets);
+        tweets.addAll(newTweets);
         adapter.notifyItemRangeInserted(curSize, newTweets.size() - 1);
     }
 

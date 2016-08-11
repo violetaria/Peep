@@ -11,7 +11,7 @@ import org.parceler.Generated;
 import org.parceler.ParcelWrapper;
 import org.parceler.ParcelerRuntimeException;
 
-@Generated(value = "org.parceler.ParcelAnnotationProcessor", date = "2016-08-10T09:05-0400")
+@Generated(value = "org.parceler.ParcelAnnotationProcessor", date = "2016-08-11T19:04-0400")
 @SuppressWarnings({
     "unchecked",
     "deprecation"
@@ -44,8 +44,11 @@ public class User$$Parcelable
                 parcel$$1 .writeInt(1);
                 parcel$$1 .writeLong(user$$1 .uid);
                 parcel$$1 .writeString(user$$1 .name);
+                parcel$$1 .writeString(user$$1 .tagline);
                 parcel$$1 .writeString(user$$1 .screenName);
+                parcel$$1 .writeInt(user$$1 .followersCount);
                 parcel$$1 .writeString(user$$1 .profileImageUrl);
+                parcel$$1 .writeInt(user$$1 .followingCount);
             }
         }
     }
@@ -80,8 +83,11 @@ public class User$$Parcelable
             identityMap$$0 .put(identity$$1, user$$5);
             user$$5 .uid = parcel$$3 .readLong();
             user$$5 .name = parcel$$3 .readString();
+            user$$5 .tagline = parcel$$3 .readString();
             user$$5 .screenName = parcel$$3 .readString();
+            user$$5 .followersCount = parcel$$3 .readInt();
             user$$5 .profileImageUrl = parcel$$3 .readString();
+            user$$5 .followingCount = parcel$$3 .readInt();
             user$$3 = user$$5;
         }
         return user$$3;

@@ -19,7 +19,7 @@
             android:value="TweetClient.db"/>
         <meta-data
             android:name="AA_DB_VERSION"
-            android:value="1"/>
+            android:value="2"/>
         <meta-data
             android:name="AA_MODELS"
             android:value="com.getlosthere.apps.peep.models.Tweet,com.getlosthere.apps.peep.models.User"/>
@@ -46,9 +46,12 @@
         </activity>
         <activity android:name=".activities.TimelineActivity">
         </activity>
-        <activity android:name=".activities.DetailActivity"
-                  android:label="@string/title_detail_tweet_activity"
-                  android:theme="@style/DetailTheme">
+        <activity
+            android:name=".activities.DetailActivity"
+            android:label="@string/title_detail_tweet_activity"
+            android:theme="@style/DetailTheme">
+        </activity>
+        <activity android:name=".activities.ProfileActivity">
         </activity>
     </application>
 

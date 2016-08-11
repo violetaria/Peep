@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/violetaria/AndroidStudioProjects/Peep/app/src/main/AndroidManifest.xml:2:1-55:12
+ADDED from /Users/violetaria/AndroidStudioProjects/Peep/app/src/main/AndroidManifest.xml:2:1-58:12
 	package
 		ADDED from /Users/violetaria/AndroidStudioProjects/Peep/app/src/main/AndroidManifest.xml:2:11-46
 		INJECTED from /Users/violetaria/AndroidStudioProjects/Peep/app/src/main/AndroidManifest.xml
@@ -28,7 +28,7 @@ ADDED from /Users/violetaria/AndroidStudioProjects/Peep/app/src/main/AndroidMani
 	android:name
 		ADDED from /Users/violetaria/AndroidStudioProjects/Peep/app/src/main/AndroidManifest.xml:9:22-76
 application
-ADDED from /Users/violetaria/AndroidStudioProjects/Peep/app/src/main/AndroidManifest.xml:11:5-53:19
+ADDED from /Users/violetaria/AndroidStudioProjects/Peep/app/src/main/AndroidManifest.xml:11:5-56:19
 MERGED from [com.android.support:appcompat-v7:24.0.0] /Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-v4:24.1.1] /Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.1.1/AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-vector-drawable:24.0.0] /Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.0.0/AndroidManifest.xml:23:5-20
@@ -55,6 +55,8 @@ MERGED from [com.android.support:animated-vector-drawable:24.0.0] /Users/violeta
 MERGED from [com.android.support:support-vector-drawable:24.0.0] /Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.0.0/AndroidManifest.xml:23:5-20
 MERGED from [com.android.support:support-v4:24.1.1] /Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.1.1/AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-v4:24.1.1] /Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.1.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-v4:24.1.1] /Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.1.1/AndroidManifest.xml:25:5-20
+MERGED from [com.astuetz:pagerslidingtabstrip:1.0.1] /Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.astuetz/pagerslidingtabstrip/1.0.1/AndroidManifest.xml:4:5-19
 MERGED from [com.android.support:support-v4:24.1.1] /Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.1.1/AndroidManifest.xml:25:5-20
 	android:label
 		ADDED from /Users/violetaria/AndroidStudioProjects/Peep/app/src/main/AndroidManifest.xml:15:9-41
@@ -127,13 +129,17 @@ ADDED from /Users/violetaria/AndroidStudioProjects/Peep/app/src/main/AndroidMani
 	android:name
 		ADDED from /Users/violetaria/AndroidStudioProjects/Peep/app/src/main/AndroidManifest.xml:47:19-62
 activity#com.getlosthere.apps.peep.activities.DetailActivity
-ADDED from /Users/violetaria/AndroidStudioProjects/Peep/app/src/main/AndroidManifest.xml:49:9-52:20
+ADDED from /Users/violetaria/AndroidStudioProjects/Peep/app/src/main/AndroidManifest.xml:49:9-53:20
 	android:label
-		ADDED from /Users/violetaria/AndroidStudioProjects/Peep/app/src/main/AndroidManifest.xml:50:19-70
+		ADDED from /Users/violetaria/AndroidStudioProjects/Peep/app/src/main/AndroidManifest.xml:51:13-64
 	android:theme
-		ADDED from /Users/violetaria/AndroidStudioProjects/Peep/app/src/main/AndroidManifest.xml:51:19-53
+		ADDED from /Users/violetaria/AndroidStudioProjects/Peep/app/src/main/AndroidManifest.xml:52:13-47
 	android:name
-		ADDED from /Users/violetaria/AndroidStudioProjects/Peep/app/src/main/AndroidManifest.xml:49:19-60
+		ADDED from /Users/violetaria/AndroidStudioProjects/Peep/app/src/main/AndroidManifest.xml:50:13-54
+activity#com.getlosthere.apps.peep.activities.ProfileActivity
+ADDED from /Users/violetaria/AndroidStudioProjects/Peep/app/src/main/AndroidManifest.xml:54:9-55:20
+	android:name
+		ADDED from /Users/violetaria/AndroidStudioProjects/Peep/app/src/main/AndroidManifest.xml:54:19-61
 uses-sdk
 INJECTED from /Users/violetaria/AndroidStudioProjects/Peep/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.codepath.libraries:android-oauth-handler:1.0.0] /Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.codepath.libraries/android-oauth-handler/1.0.0/AndroidManifest.xml:7:5-9:41
@@ -167,6 +173,8 @@ MERGED from [jp.wasabeef:picasso-transformations:2.1.0] /Users/violetaria/Androi
 MERGED from [com.android.support:recyclerview-v7:24.0.0] /Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/24.0.0/AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:support-v4:24.1.1] /Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.1.1/AndroidManifest.xml:21:5-23:54
 MERGED from [com.jakewharton:butterknife:8.2.1] /Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.jakewharton/butterknife/8.2.1/AndroidManifest.xml:5:5-43
+MERGED from [com.android.support:support-v4:24.1.1] /Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.1.1/AndroidManifest.xml:21:5-23:54
+MERGED from [com.astuetz:pagerslidingtabstrip:1.0.1] /Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.astuetz/pagerslidingtabstrip/1.0.1/AndroidManifest.xml:2:5-72
 MERGED from [com.android.support:support-v4:24.1.1] /Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.1.1/AndroidManifest.xml:21:5-23:54
 	tools:overrideLibrary
 		ADDED from [com.android.support:appcompat-v7:24.0.0] /Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/AndroidManifest.xml:23:9-75

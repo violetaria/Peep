@@ -27,6 +27,15 @@ public class User extends Model {
     @Column(name = "ProfileImageUrl")
     public String profileImageUrl;
 
+    @Column(name = "Tagline")
+    public String tagline;
+
+    @Column(name = "FollowersCount")
+    public int followersCount;
+
+    @Column(name = "FollowingCount")
+    public int followingCount;
+
     public String getName() {
         return name;
     }
@@ -42,6 +51,19 @@ public class User extends Model {
 
     public long getUid() {
         return uid;
+    }
+
+
+    public String getTagline() {
+        return tagline;
+    }
+
+    public int getFollowersCount() {
+        return followersCount;
+    }
+
+    public int getFollowingCount() {
+        return followingCount;
     }
 
     // empty constructor needed by the Parceler library
@@ -75,6 +97,9 @@ public class User extends Model {
             user.uid = jsonObject.getLong("id");
             user.screenName = jsonObject.getString("screen_name");
             user.profileImageUrl = jsonObject.getString("profile_image_url");
+            user.tagline = jsonObject.getString("description");
+            user.followersCount = jsonObject.getInt("followers_count");
+            user.followingCount = jsonObject.getInt("friends_count");
         } catch (JSONException e) {
             e.printStackTrace();
         }
