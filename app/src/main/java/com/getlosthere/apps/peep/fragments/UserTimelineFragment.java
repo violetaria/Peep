@@ -1,5 +1,6 @@
 package com.getlosthere.apps.peep.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -8,6 +9,7 @@ import android.widget.Toast;
 import com.getlosthere.apps.peep.applications.TwitterApplication;
 import com.getlosthere.apps.peep.helpers.NetworkHelper;
 import com.getlosthere.apps.peep.models.Tweet;
+import com.getlosthere.apps.peep.models.User;
 import com.getlosthere.apps.peep.rest_clients.TwitterClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
@@ -23,6 +25,24 @@ import cz.msebera.android.httpclient.Header;
 public class UserTimelineFragment extends TweetsListFragment{
     private String screenName;
     private TwitterClient client;
+    User user;
+
+    private OnLoadedListener listener;
+
+    public interface OnLoadedListener {
+        public void onUserProfileLoaded(User user);
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof OnLoadedListener) {
+            listener = (OnLoadedListener) context;
+        } else {
+            throw new ClassCastException(context.toString() +
+                    " must implement UserTimelineFragment.OnLoadedListener");
+        }
+    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -43,10 +63,13 @@ public class UserTimelineFragment extends TweetsListFragment{
 
     public void populateTimeline(long maxId) {
         if (NetworkHelper.isOnline() && NetworkHelper.isNetworkAvailable(getActivity())) {
-            client.getUserTimeline(screenName, new JsonHttpResponseHandler() {
+            client.getUserTimeline(screenName, maxId, new JsonHttpResponseHandler() {
                 @Override
                 public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                     ArrayList<Tweet> newTweets = Tweet.fromJSONArray(response);
+                    // TODO check for null here
+                    user = newTweets.get(0).getUser();
+                    listener.onUserProfileLoaded(user);
                     addAll(newTweets);
                 }
 

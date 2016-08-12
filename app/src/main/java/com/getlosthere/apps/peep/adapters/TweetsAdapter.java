@@ -1,6 +1,8 @@
 package com.getlosthere.apps.peep.adapters;
 
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,11 +11,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.getlosthere.apps.peep.R;
+import com.getlosthere.apps.peep.activities.ProfileActivity;
+import com.getlosthere.apps.peep.helpers.PatternEditableBuilder;
 import com.getlosthere.apps.peep.helpers.RelativeTimeHelper;
 import com.getlosthere.apps.peep.models.Tweet;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
+import java.util.regex.Pattern;
 
 import butterknife.ButterKnife;
 import jp.wasabeef.picasso.transformations.RoundedCornersTransformation;
@@ -21,11 +26,11 @@ import jp.wasabeef.picasso.transformations.RoundedCornersTransformation;
 /**
  * Created by violetaria on 8/4/16.
  */
-public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder>{
+public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder> {
     private List<Tweet> tweets;
     private Context context;
 
-    private Context getContext(){
+    private Context getContext() {
         return context;
     }
 
@@ -45,12 +50,12 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
         public ViewHolder(View itemView) {
             super(itemView);
 
-            ivProfileImage = ButterKnife.findById(itemView,R.id.ivProfileImage);
-            tvUsername = ButterKnife.findById(itemView,R.id.tvUsername);
-            tvBody = ButterKnife.findById(itemView,R.id.tvBody);
-            tvScreenName = ButterKnife.findById(itemView,R.id.tvScreenName);
-            tvPostDate = ButterKnife.findById(itemView,R.id.tvPostDate);
-            tvLikeCount = ButterKnife.findById(itemView,R.id.tvLikeCount);
+            ivProfileImage = ButterKnife.findById(itemView, R.id.ivProfileImage);
+            tvUsername = ButterKnife.findById(itemView, R.id.tvUsername);
+            tvBody = ButterKnife.findById(itemView, R.id.tvBody);
+            tvScreenName = ButterKnife.findById(itemView, R.id.tvScreenName);
+            tvPostDate = ButterKnife.findById(itemView, R.id.tvPostDate);
+            tvLikeCount = ButterKnife.findById(itemView, R.id.tvLikeCount);
         }
     }
 
@@ -81,6 +86,18 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
         // set data up
         tvUsername.setText(tweet.getUser().getName());
         tvBody.setText(tweet.getBody());
+        new PatternEditableBuilder().
+                addPattern(Pattern.compile("\\@(\\w+)"), Color.BLUE,
+                        new PatternEditableBuilder.SpannableClickedListener() {
+                            @Override
+                            public void onSpanClicked(String screenName) {
+                                Intent i = new Intent(context, ProfileActivity.class);
+
+                                i.putExtra("screen_name", screenName);
+
+                                context.startActivity(i);
+                            }
+                        }).into(tvBody);
         tvScreenName.setText(tweet.getUser().getScreenName());
         tvPostDate.setText(RelativeTimeHelper.getRelativeTimeAgo(tweet.getCreatedAt()));
         tvLikeCount.setText(tweet.getFavoriteCountString());

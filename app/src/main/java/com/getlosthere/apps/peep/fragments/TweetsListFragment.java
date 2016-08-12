@@ -86,7 +86,6 @@ public abstract class TweetsListFragment extends Fragment {
                 swipeContainer.setRefreshing(false);
             }
         });
-
     }
 
     private void launchTweetDetail(int position){
