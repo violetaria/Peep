@@ -1,7 +1,6 @@
 package com.getlosthere.apps.peep.adapters;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.getlosthere.apps.peep.R;
-import com.getlosthere.apps.peep.activities.ProfileActivity;
 import com.getlosthere.apps.peep.helpers.PatternEditableBuilder;
 import com.getlosthere.apps.peep.helpers.RelativeTimeHelper;
 import com.getlosthere.apps.peep.models.Tweet;
@@ -29,6 +27,7 @@ import jp.wasabeef.picasso.transformations.RoundedCornersTransformation;
 public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder> {
     private List<Tweet> tweets;
     private Context context;
+    private ViewHolderListener listener;
 
     private Context getContext() {
         return context;
@@ -37,6 +36,15 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
     public TweetsAdapter(Context context, List<Tweet> tweets) {
         this.context = context;
         this.tweets = tweets;
+        this.listener = null;
+    }
+
+    public void setViewHolderListener(ViewHolderListener listener){
+        this.listener = listener;
+    }
+
+    public static interface ViewHolderListener {
+        public void launchProfileActivity(String screenName);
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -47,6 +55,10 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
         public TextView tvPostDate;
         public TextView tvLikeCount;
 
+        public interface ViewHolderListener {
+
+        }
+
         public ViewHolder(View itemView) {
             super(itemView);
 
@@ -56,6 +68,7 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
             tvScreenName = ButterKnife.findById(itemView, R.id.tvScreenName);
             tvPostDate = ButterKnife.findById(itemView, R.id.tvPostDate);
             tvLikeCount = ButterKnife.findById(itemView, R.id.tvLikeCount);
+
         }
     }
 
@@ -67,6 +80,7 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
         View tweetView = inflater.inflate(R.layout.item_tweet, parent, false);
 
         ViewHolder viewHolder = new ViewHolder(tweetView);
+
         return viewHolder;
     }
 
@@ -91,11 +105,10 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
                         new PatternEditableBuilder.SpannableClickedListener() {
                             @Override
                             public void onSpanClicked(String screenName) {
-                                Intent i = new Intent(context, ProfileActivity.class);
-
-                                i.putExtra("screen_name", screenName);
-
-                                context.startActivity(i);
+//                                Intent i = new Intent(context, ProfileActivity.class);
+//                                i.putExtra("screen_name", screenName);
+//                                context.startActivity(i);
+                                listener.launchProfileActivity(screenName);
                             }
                         }).into(tvBody);
         tvScreenName.setText(tweet.getUser().getScreenName());
@@ -104,6 +117,17 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
 
         // clear out old image for recycle view
         ivProfileImage.setImageResource(android.R.color.transparent);
+        ivProfileImage.setTag(tweet.getUser().getScreenName());
+        ivProfileImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                int position = view.getPo
+//                Intent i = new Intent(context, ProfileActivity.class);
+//                i.putExtra("screen_name",tweets.get(position).getUser().screenName);
+//                context.startActivity(i);
+                listener.launchProfileActivity(view.getTag().toString());
+            }
+        });
         Picasso.with(getContext()).load(tweet.getUser().getProfileImageUrl()).transform(new RoundedCornersTransformation(7, 7)).fit().centerInside().into(ivProfileImage);
     }
 

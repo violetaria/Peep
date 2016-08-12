@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 
 import com.getlosthere.apps.peep.R;
 import com.getlosthere.apps.peep.activities.DetailActivity;
+import com.getlosthere.apps.peep.activities.ProfileActivity;
 import com.getlosthere.apps.peep.adapters.TweetsAdapter;
 import com.getlosthere.apps.peep.helpers.ItemClickSupportHelper;
 import com.getlosthere.apps.peep.listeners.EndlessRecyclerViewScrollListener;
@@ -53,6 +54,16 @@ public abstract class TweetsListFragment extends Fragment {
 
     private void setupView(View view){
         adapter = new TweetsAdapter(getActivity(), tweets);
+        adapter.setViewHolderListener(new TweetsAdapter.ViewHolderListener() {
+            @Override
+            public void launchProfileActivity(String screenName) {
+                Intent i = new Intent(getActivity(), ProfileActivity.class);
+
+                i.putExtra("screen_name",screenName);
+
+                startActivity(i);
+            }
+        });
 
         rvTweets.setAdapter(adapter);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());

@@ -44,7 +44,7 @@ public class ProfileActivity extends AppCompatActivity implements UserTimelineFr
         client = TwitterApplication.getRestClient();
 
         String screenName = getIntent().getStringExtra("screen_name");
-        
+
         if (savedInstanceState == null) {
             fragmentUserTimeline = UserTimelineFragment.newInstance(screenName);
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
