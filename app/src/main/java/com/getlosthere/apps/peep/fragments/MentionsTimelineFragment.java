@@ -28,7 +28,9 @@ public class MentionsTimelineFragment extends TweetsListFragment {
         super.onCreate(savedInstanceState);
 
         client = TwitterApplication.getRestClient();
+//        pb.setVisibility(ProgressBar.VISIBLE);
         populateTimeline(1);
+//        pb.setVisibility(ProgressBar.INVISIBLE);
     }
 
     public void populateTimeline(long maxId) {

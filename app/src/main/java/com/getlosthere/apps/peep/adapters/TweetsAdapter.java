@@ -3,6 +3,7 @@ package com.getlosthere.apps.peep.adapters;
 import android.content.Context;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,6 +46,7 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
 
     public static interface ViewHolderListener {
         public void launchProfileActivity(String screenName);
+        public void launchReplyDialog(String screenName);
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -54,6 +56,7 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
         public TextView tvScreenName;
         public TextView tvPostDate;
         public TextView tvLikeCount;
+        public ImageView ivReplyImage;
 
         public interface ViewHolderListener {
 
@@ -68,7 +71,7 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
             tvScreenName = ButterKnife.findById(itemView, R.id.tvScreenName);
             tvPostDate = ButterKnife.findById(itemView, R.id.tvPostDate);
             tvLikeCount = ButterKnife.findById(itemView, R.id.tvLikeCount);
-
+            ivReplyImage = ButterKnife.findById(itemView, R.id.ivReply);
         }
     }
 
@@ -96,6 +99,7 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
         TextView tvScreenName = holder.tvScreenName;
         TextView tvPostDate = holder.tvPostDate;
         TextView tvLikeCount = holder.tvLikeCount;
+        ImageView ivReplyImage = holder.ivReplyImage;
 
         // set data up
         tvUsername.setText(tweet.getUser().getName());
@@ -105,9 +109,6 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
                         new PatternEditableBuilder.SpannableClickedListener() {
                             @Override
                             public void onSpanClicked(String screenName) {
-//                                Intent i = new Intent(context, ProfileActivity.class);
-//                                i.putExtra("screen_name", screenName);
-//                                context.startActivity(i);
                                 listener.launchProfileActivity(screenName);
                             }
                         }).into(tvBody);
@@ -121,14 +122,19 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
         ivProfileImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                int position = view.getPo
-//                Intent i = new Intent(context, ProfileActivity.class);
-//                i.putExtra("screen_name",tweets.get(position).getUser().screenName);
-//                context.startActivity(i);
                 listener.launchProfileActivity(view.getTag().toString());
             }
         });
         Picasso.with(getContext()).load(tweet.getUser().getProfileImageUrl()).transform(new RoundedCornersTransformation(7, 7)).fit().centerInside().into(ivProfileImage);
+
+        ivReplyImage.setTag(tweet.getUser().getScreenName());
+        ivReplyImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("DEBUG",view.getTag().toString());
+                listener.launchReplyDialog(view.getTag().toString());
+            }
+        });
     }
 
     @Override

@@ -3,7 +3,11 @@ package com.getlosthere.apps.peep.fragments;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.BottomSheetBehavior;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -29,12 +33,17 @@ import butterknife.ButterKnife;
 /**
  * Created by violetaria on 8/9/16.
  */
-public abstract class TweetsListFragment extends Fragment {
+public abstract class TweetsListFragment extends Fragment implements ComposeDialogFragment.ComposeDialogListener{
     public TweetsAdapter adapter;
     public ArrayList<Tweet> tweets;
     @BindView(R.id.rvTweets) RecyclerView rvTweets;
     @BindView(R.id.swipeContainer) SwipeRefreshLayout swipeContainer;
+    @BindView(R.id.fab) FloatingActionButton btnFab;
+    @BindView(R.id.main_fragment_content) CoordinatorLayout coordinatorLayout;
+    @BindView(R.id.design_bottom_sheet) RecyclerView rvBottomSheet;
+
     private final int REQUEST_CODE_DETAIL = 40;
+    //ProgressBar pb;
 
     abstract void populateTimeline(long maxId);
 
@@ -63,6 +72,16 @@ public abstract class TweetsListFragment extends Fragment {
 
                 startActivity(i);
             }
+
+            @Override
+            public void launchReplyDialog(String screenName) {
+                ComposeDialogFragment myDialog = ComposeDialogFragment.newInstance(screenName);
+
+                FragmentManager fm = getFragmentManager();
+
+                myDialog.setTargetFragment(TweetsListFragment.this, 100);
+                myDialog.show(fm, "fragment_compose_dialog");
+            }
         });
 
         rvTweets.setAdapter(adapter);
@@ -81,7 +100,7 @@ public abstract class TweetsListFragment extends Fragment {
         rvTweets.addOnScrollListener(new EndlessRecyclerViewScrollListener(linearLayoutManager) {
             @Override
             public void onLoadMore(int page, int totalItemsCount) {
-                int curSize = adapter.getItemCount(); // for endless scroll maybe?
+                int curSize = adapter.getItemCount();
                 long maxId = curSize > 0 ? tweets.get(curSize - 1).getUid() : 1;
                 populateTimeline(maxId);
             }
@@ -93,10 +112,34 @@ public abstract class TweetsListFragment extends Fragment {
                 int curSize = adapter.getItemCount();
                 adapter.clear();
                 adapter.notifyItemRangeRemoved(0,curSize);
+                //pb.setVisibility(ProgressBar.VISIBLE);
                 populateTimeline(1);
+                //pb.setVisibility(ProgressBar.INVISIBLE);
                 swipeContainer.setRefreshing(false);
             }
         });
+
+        rvBottomSheet.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        final BottomSheetBehavior behavior = BottomSheetBehavior.from(rvBottomSheet);
+        btnFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                launchComposeMessage(null);
+            }
+        });
+
+        //pb = (ProgressBar) view.findViewById(R.id.pbLoading);
+    }
+
+
+    private void launchComposeMessage(String screenName){
+        ComposeDialogFragment myDialog = ComposeDialogFragment.newInstance(screenName);
+
+        FragmentManager fm = getActivity().getSupportFragmentManager();
+
+        myDialog.setTargetFragment(TweetsListFragment.this, 100);
+        myDialog.show(fm, "fragment_compose_dialog");
     }
 
     private void launchTweetDetail(int position){
@@ -108,6 +151,12 @@ public abstract class TweetsListFragment extends Fragment {
 
         startActivityForResult(i, REQUEST_CODE_DETAIL);
     }
+
+    @Override
+    public void onFinishedComposePeepDialog(Tweet tweet) {
+        add(tweet);
+    }
+
 
 //    // ## TODO fix this where we get the info back from an activity
 //    @Override

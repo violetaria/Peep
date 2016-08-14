@@ -1,9 +1,0 @@
-CHANGED,/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/getlosthere/apps/peep/fragments/TweetsListFragment$3$override.class
-CHANGED,/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/android/tools/fd/runtime/AppPatchesLoaderImpl.class
-CHANGED,/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/getlosthere/apps/peep/adapters/TweetsAdapter$override.class
-CHANGED,/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/getlosthere/apps/peep/fragments/TweetsListFragment$override.class
-CHANGED,/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/getlosthere/apps/peep/fragments/TweetsListFragment$2$override.class
-CHANGED,/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/getlosthere/apps/peep/adapters/TweetsAdapter$1$override.class
-CHANGED,/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/getlosthere/apps/peep/fragments/TweetsListFragment$1$override.class
-CHANGED,/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/getlosthere/apps/peep/adapters/TweetsAdapter$ViewHolder$override.class
-CHANGED,/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/getlosthere/apps/peep/adapters/TweetsAdapter$2$override.class

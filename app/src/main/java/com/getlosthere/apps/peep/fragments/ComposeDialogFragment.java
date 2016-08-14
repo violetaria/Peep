@@ -9,6 +9,9 @@ import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.design.widget.CoordinatorLayout;
 import android.text.Editable;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
@@ -42,12 +45,23 @@ public class ComposeDialogFragment extends BottomSheetDialogFragment {
     @BindView(R.id.ibtnCancel) ImageButton ibtnCancel;
     private Tweet tweet;
     private final static int MAX_CHAR_COUNT = 140;
+    String screenName;
 
+    public static ComposeDialogFragment newInstance(String screenName){
+        Bundle bundle = new Bundle();
+        bundle.putString("screen_name", screenName);
+        ComposeDialogFragment fragment = new ComposeDialogFragment();
+        fragment.setArguments(bundle);
+        return fragment;
+    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        screenName = getArguments().getString("screen_name");
     }
+
 
     private BottomSheetBehavior.BottomSheetCallback mBottomSheetBehaviorCallback = new BottomSheetBehavior.BottomSheetCallback() {
         @Override
@@ -105,6 +119,11 @@ public class ComposeDialogFragment extends BottomSheetDialogFragment {
                 tvLetterCount.setText(Integer.toString(MAX_CHAR_COUNT - curLength));
             }
         });
+        if (!TextUtils.isEmpty(screenName)) {
+            final SpannableStringBuilder boldedScreenName = new SpannableStringBuilder(screenName);
+            boldedScreenName.setSpan(new android.text.style.StyleSpan(android.graphics.Typeface.BOLD), 0, screenName.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            etBody.setText(boldedScreenName + " ");
+        }
         btnPeep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -129,7 +148,7 @@ public class ComposeDialogFragment extends BottomSheetDialogFragment {
                 @Override
                 public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                     tweet = Tweet.fromJSONObject(response);
-                    ComposeDialogListener listener = (ComposeDialogListener) getActivity();
+                    ComposeDialogListener listener = (ComposeDialogListener) getTargetFragment();
                     listener.onFinishedComposePeepDialog(tweet);
                     dismiss();
                 }

@@ -11,7 +11,7 @@ import org.parceler.Generated;
 import org.parceler.ParcelWrapper;
 import org.parceler.ParcelerRuntimeException;
 
-@Generated(value = "org.parceler.ParcelAnnotationProcessor", date = "2016-08-12T16:46-0400")
+@Generated(value = "org.parceler.ParcelAnnotationProcessor", date = "2016-08-13T21:47-0400")
 @SuppressWarnings({
     "unchecked",
     "deprecation"

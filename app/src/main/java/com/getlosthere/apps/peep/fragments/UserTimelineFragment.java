@@ -3,6 +3,7 @@ package com.getlosthere.apps.peep.fragments;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -14,6 +15,7 @@ import com.getlosthere.apps.peep.rest_clients.TwitterClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -50,7 +52,10 @@ public class UserTimelineFragment extends TweetsListFragment{
 
         screenName = getArguments().getString("screen_name");
         client = TwitterApplication.getRestClient();
+        populateHeader();
+//        pb.setVisibility(ProgressBar.VISIBLE);
         populateTimeline(1);
+//        pb.setVisibility(ProgressBar.INVISIBLE);
     }
 
     public static UserTimelineFragment newInstance(String screenName) {
@@ -61,15 +66,51 @@ public class UserTimelineFragment extends TweetsListFragment{
         return fUserTimeline;
     }
 
+    public void populateHeader() {
+        if (NetworkHelper.isOnline() && NetworkHelper.isNetworkAvailable(getActivity())) {
+            if (TextUtils.isEmpty(screenName)){
+                client.getCurrentUserInfo( new JsonHttpResponseHandler() {
+                    @Override
+                    public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                        user = User.findOrCreateFromJson(response);
+                        listener.onUserProfileLoaded(user);
+                    }
+
+                    @Override
+                    public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                        Log.d("DEBUG", "STATUS CODE = " + Integer.toString(statusCode));
+                        Log.d("DEBUG", responseString);
+                    }
+                });
+            } else {
+                client.getOtherUserInfo(screenName, new JsonHttpResponseHandler() {
+                    @Override
+                    public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                        user = User.findOrCreateFromJson(response);
+                        listener.onUserProfileLoaded(user);
+                    }
+
+                    @Override
+                    public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                        Log.d("DEBUG", "STATUS CODE = " + Integer.toString(statusCode));
+                        Log.d("DEBUG", responseString);
+                    }
+                });
+            }
+        } else {
+            // TODO Fix this somehow to be the user query for tweets
+            ArrayList<Tweet> dbTweets = Tweet.getAll();
+            addAll(dbTweets);
+            Toast.makeText(getActivity(), "You're offline, using DB. Check your network connection", Toast.LENGTH_LONG).show();
+        }
+    }
+
     public void populateTimeline(long maxId) {
         if (NetworkHelper.isOnline() && NetworkHelper.isNetworkAvailable(getActivity())) {
             client.getUserTimeline(screenName, maxId, new JsonHttpResponseHandler() {
                 @Override
                 public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                     ArrayList<Tweet> newTweets = Tweet.fromJSONArray(response);
-                    // TODO check for null here
-                    user = newTweets.get(0).getUser();
-                    listener.onUserProfileLoaded(user);
                     addAll(newTweets);
                 }
 

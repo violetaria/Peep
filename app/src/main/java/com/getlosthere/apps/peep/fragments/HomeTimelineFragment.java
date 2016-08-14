@@ -26,9 +26,10 @@ public class HomeTimelineFragment extends TweetsListFragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         client = TwitterApplication.getRestClient();
+//        pb.setVisibility(ProgressBar.VISIBLE);
         populateTimeline(1);
+//        pb.setVisibility(ProgressBar.INVISIBLE);
     }
 
     public void populateTimeline(long maxId) {
