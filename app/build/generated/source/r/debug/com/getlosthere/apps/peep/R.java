@@ -2576,10 +2576,11 @@ containing a value of this type.
         public static final int ic_launcher=0x7f020053;
         public static final int ic_message_plus=0x7f020054;
         public static final int ic_profile=0x7f020055;
-        public static final int notification_template_icon_bg=0x7f020059;
+        public static final int notification_template_icon_bg=0x7f02005a;
         public static final int peep=0x7f020056;
         public static final int reply=0x7f020057;
         public static final int retweet=0x7f020058;
+        public static final int unliked=0x7f020059;
     }
     public static final class id {
         public static final int action0=0x7f0b0097;

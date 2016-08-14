@@ -104,6 +104,10 @@
         "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/src/main/res/drawable-mdpi/ic_launcher.png"
     },
     {
+        "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/unliked.png",
+        "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/src/main/res/drawable-mdpi/unliked.png"
+    },
+    {
         "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_ab_share_pack_mtrl_alpha.9.png",
         "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/drawable-mdpi-v4/abc_ab_share_pack_mtrl_alpha.9.png"
     },

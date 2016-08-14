@@ -4,35 +4,55 @@
     api-level="23"
     density="560dpi"
     format="7"
-    timestamp="195685805222307"
-    token="5876549803816008745" >
+    timestamp="200677048495635"
+    token="5876549803816008745"
+    verifier="COMPATIBLE" >
 
     <task
         name="javac"
-        duration="0" />
+        duration="1591" />
     <task
         name="instant-run-dex"
-        duration="0" />
+        duration="7" />
     <task
         name="instant-run-transform"
-        duration="0" />
+        duration="14" />
     <task
         name="verifier"
-        duration="0" />
+        duration="1" />
 
     <artifact
-        location="/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/resources-debug.ap_"
-        type="RESOURCES" />
+        location="/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/reload-dex/debug/classes.dex"
+        type="RELOAD_DEX" />
 
-    <build timestamp="195414000965245" >
+    <build timestamp="200270790204969" >
         <artifact
             location="/Users/violetaria/AndroidStudioProjects/Peep/app/build/outputs/apk/app-debug.apk"
             type="MAIN" />
     </build>
-    <build timestamp="195685805222307" >
+    <build
+        timestamp="200418404959016"
+        verifier="CLASS_ADDED" >
         <artifact
-            location="/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/resources-debug.ap_"
-            type="RESOURCES" />
+            location="/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_1/classes.dex"
+            type="DEX" />
+    </build>
+    <build timestamp="200477858062717" >
+        <artifact
+            location="/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_9/classes.dex"
+            type="DEX" />
+    </build>
+    <build timestamp="200646824249894" >
+        <artifact
+            location="/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_0/classes.dex"
+            type="DEX" />
+    </build>
+    <build
+        timestamp="200677048495635"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/reload-dex/debug/classes.dex"
+            type="RELOAD_DEX" />
     </build>
 
 </instant-run>

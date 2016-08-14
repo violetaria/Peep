@@ -11,7 +11,7 @@ import org.parceler.Generated;
 import org.parceler.ParcelWrapper;
 import org.parceler.ParcelerRuntimeException;
 
-@Generated(value = "org.parceler.ParcelAnnotationProcessor", date = "2016-08-14T10:54-0400")
+@Generated(value = "org.parceler.ParcelAnnotationProcessor", date = "2016-08-14T17:37-0400")
 @SuppressWarnings({
     "unchecked",
     "deprecation"
@@ -48,6 +48,7 @@ public class Tweet$$Parcelable
                 com.getlosthere.apps.peep.models.User$$Parcelable.write(tweet$$1 .user, parcel$$1, flags$$0, identitySet$$0);
                 parcel$$1 .writeInt(tweet$$1 .retweetCount);
                 parcel$$1 .writeInt(tweet$$1 .favoriteCount);
+                parcel$$1 .writeInt((tweet$$1 .favorited? 1 : 0));
             }
         }
     }
@@ -87,6 +88,7 @@ public class Tweet$$Parcelable
             tweet$$5 .user = user$$0;
             tweet$$5 .retweetCount = parcel$$3 .readInt();
             tweet$$5 .favoriteCount = parcel$$3 .readInt();
+            tweet$$5 .favorited = (parcel$$3 .readInt() == 1);
             tweet$$3 = tweet$$5;
         }
         return tweet$$3;

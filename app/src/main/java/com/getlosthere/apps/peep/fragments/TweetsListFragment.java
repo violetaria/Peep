@@ -94,6 +94,69 @@ public abstract class TweetsListFragment extends Fragment implements ComposeDial
                 myDialog.show(fm, "fragment_compose_dialog");
             }
 
+            @Override
+            public void favoriteTweet(long tweetId) {
+                if (NetworkHelper.isOnline() && NetworkHelper.isNetworkAvailable(getActivity())) {
+                    client.likeTweet(tweetId, new JsonHttpResponseHandler() {
+                        @Override
+                        public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                            Tweet newTweet = Tweet.fromJSONObject(response);
+                        }
+
+                        @Override
+                        public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                            Log.d("DEBUG", "STATUS CODE = " + Integer.toString(statusCode));
+                            Log.d("DEBUG", responseString);
+                        }
+
+                        @Override
+                        public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONArray errorResponse) {
+                            Log.d("DEBUG", "STATUS CODE = " + Integer.toString(statusCode));
+                            Log.d("DEBUG", errorResponse.toString());
+                        }
+
+                        @Override
+                        public void onUserException(Throwable error) {
+                            Log.d("DEBUG", error.toString());
+                        }
+                    });
+                } else{
+                    Toast.makeText(getActivity(), "You're offline, can't favorite. Check your network connection",Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void unfavoriteTweet(long tweetId){
+                if (NetworkHelper.isOnline() && NetworkHelper.isNetworkAvailable(getActivity())) {
+                    client.unlikeTweet(tweetId, new JsonHttpResponseHandler() {
+                        @Override
+                        public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                            Tweet newTweet = Tweet.fromJSONObject(response);
+                        }
+
+                        @Override
+                        public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                            Log.d("DEBUG", "STATUS CODE = " + Integer.toString(statusCode));
+                            Log.d("DEBUG", responseString);
+                        }
+
+                        @Override
+                        public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONArray errorResponse) {
+                            Log.d("DEBUG", "STATUS CODE = " + Integer.toString(statusCode));
+                            Log.d("DEBUG", errorResponse.toString());
+                        }
+
+                        @Override
+                        public void onUserException(Throwable error) {
+                            Log.d("DEBUG", error.toString());
+                        }
+                    });
+                } else{
+                    Toast.makeText(getActivity(), "You're offline, can't un-favorite. Check your network connection",Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
             public void retweetTweet(long tweetId){
                 if (NetworkHelper.isOnline() && NetworkHelper.isNetworkAvailable(getActivity())) {
                     client.postRetweet(tweetId, new JsonHttpResponseHandler() {

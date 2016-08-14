@@ -48,6 +48,8 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
         public void launchProfileActivity(String screenName);
         public void launchReplyDialog(String screenName);
         public void retweetTweet(long tweetId);
+        public void favoriteTweet(long tweetId);
+        public void unfavoriteTweet(long tweetId);
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -60,6 +62,7 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
         public ImageView ivReplyImage;
         public TextView tvRetweetCount;
         public ImageView ivRetweetImage;
+        public ImageView ivFavoritedImage;
 
         public interface ViewHolderListener {
 
@@ -77,6 +80,7 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
             ivReplyImage = ButterKnife.findById(itemView, R.id.ivReply);
             tvRetweetCount = ButterKnife.findById(itemView, R.id.tvRetweetCount);
             ivRetweetImage = ButterKnife.findById(itemView, R.id.ivRetweet);
+            ivFavoritedImage = ButterKnife.findById(itemView, R.id.ivLikes);
         }
     }
 
@@ -103,10 +107,11 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
         TextView tvBody = holder.tvBody;
         TextView tvScreenName = holder.tvScreenName;
         TextView tvPostDate = holder.tvPostDate;
-        TextView tvLikeCount = holder.tvLikeCount;
+        final TextView tvLikeCount = holder.tvLikeCount;
         ImageView ivReplyImage = holder.ivReplyImage;
         TextView tvRetweetCount = holder.tvRetweetCount;
-        ImageView ivRetweetImage = holder.ivRetweetImage;
+        final ImageView ivRetweetImage = holder.ivRetweetImage;
+        final ImageView ivFavoritedImage = holder.ivFavoritedImage;
 
         // set data up
         tvUsername.setText(tweet.getUser().getName());
@@ -141,6 +146,34 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
             public void onClick(View view) {
                 Log.d("DEBUG",view.getTag().toString());
                 listener.launchReplyDialog(view.getTag().toString());
+            }
+        });
+
+        if(tweet.getFavorited()) {
+           Picasso.with(getContext()).load(R.drawable.heart).fit().centerInside().into(ivFavoritedImage);
+        } else {
+            Picasso.with(getContext()).load(R.drawable.unliked).fit().centerInside().into(ivFavoritedImage);
+        }
+        ivFavoritedImage.setTag(tweet);
+        ivFavoritedImage.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Tweet tweet = (Tweet) view.getTag();
+                if (tweet.getFavorited()) {
+                    listener.unfavoriteTweet(tweet.getUid());
+                    Picasso.with(getContext()).load(R.drawable.unliked).fit().centerInside().into(ivFavoritedImage);
+                    tweet.favoriteCount = tweet.favoriteCount - 1;
+                    tweet.favorited = false;
+                    tweet.save();
+                    tvLikeCount.setText(Integer.toString(tweet.getFavoriteCount()));
+                } else {
+                    listener.favoriteTweet(tweet.getUid());
+                    Picasso.with(getContext()).load(R.drawable.heart).fit().centerInside().into(ivFavoritedImage);
+                    tweet.favoriteCount = tweet.favoriteCount + 1;
+                    tweet.favorited = true;
+                    tweet.save();
+                    tvLikeCount.setText(Integer.toString(tweet.getFavoriteCount()));
+                }
             }
         });
 

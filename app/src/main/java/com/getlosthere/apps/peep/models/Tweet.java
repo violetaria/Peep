@@ -70,7 +70,12 @@ public class Tweet extends Model {
     @Column(name = "RetweetCount")
     public int retweetCount;
 
+    @Column(name = "Favorited")
+    public boolean favorited;
+
     public int getRetweetCount() { return retweetCount; };
+
+    public boolean getFavorited() { return favorited; }
 
     public String getRetweetCountString() { return Integer.toString(retweetCount); }
 
@@ -125,6 +130,7 @@ public class Tweet extends Model {
             tweet.uid = jsonObject.getLong("id");
             tweet.createdAt = jsonObject.getString("created_at");
             tweet.favoriteCount = jsonObject.getInt("favorite_count");
+            tweet.favorited = jsonObject.getBoolean("favorited");
             tweet.retweetCount = jsonObject.getInt("retweet_count");
             tweet.user = User.findOrCreateFromJson(jsonObject.getJSONObject("user"));
         } catch (JSONException e) {
