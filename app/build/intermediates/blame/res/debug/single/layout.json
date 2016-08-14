@@ -152,6 +152,10 @@
         "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/src/main/res/layout/fragment_compose_dialog.xml"
     },
     {
+        "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/fragment_profile_header.xml",
+        "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/src/main/res/layout/fragment_profile_header.xml"
+    },
+    {
         "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/layout/abc_activity_chooser_view_list_item.xml",
         "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/layout/abc_activity_chooser_view_list_item.xml"
     },

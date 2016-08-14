@@ -8,7 +8,7 @@ import com.getlosthere.apps.peep.models.Tweet$$Parcelable;
 import com.getlosthere.apps.peep.models.User;
 import com.getlosthere.apps.peep.models.User$$Parcelable;
 
-@Generated(value = "org.parceler.ParcelAnnotationProcessor", date = "2016-08-14T10:11-0400")
+@Generated(value = "org.parceler.ParcelAnnotationProcessor", date = "2016-08-14T10:54-0400")
 @SuppressWarnings({
     "unchecked",
     "deprecation"
@@ -20,8 +20,8 @@ public class Parceler$$Parcels
     private final Map<Class, org.parceler.Parcels.ParcelableFactory> map$$0 = new HashMap<Class, org.parceler.Parcels.ParcelableFactory>();
 
     public Parceler$$Parcels() {
-        map$$0 .put(Tweet.class, new Parceler$$Parcels.Tweet$$Parcelable$$0());
         map$$0 .put(User.class, new Parceler$$Parcels.User$$Parcelable$$0());
+        map$$0 .put(Tweet.class, new Parceler$$Parcels.Tweet$$Parcelable$$0());
     }
 
     public Map<Class, org.parceler.Parcels.ParcelableFactory> get() {

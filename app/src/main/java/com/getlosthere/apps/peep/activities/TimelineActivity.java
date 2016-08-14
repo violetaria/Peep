@@ -43,30 +43,10 @@ public class TimelineActivity extends AppCompatActivity {
         return true;
     }
 
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        // TODO fix
-//        return super.onOptionsItemSelected(item);
-//    }
-
     public void onProfileView(MenuItem mi){
         Intent i = new Intent(this, ProfileActivity.class);
 
         startActivity(i);
     }
-
-
-    // TODO do we need this even here?  nothing gets done after the person look at tweet detail
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        if (resultCode == RESULT_OK && requestCode == REQUEST_CODE_COMPOSE) {
-//            Tweet newTweet = (Tweet) Parcels.unwrap(data.getParcelableExtra("tweet"));
-//            fTimeline.add(newTweet);
-////            Toast.makeText(this, "Peep successful!", Toast.LENGTH_SHORT).show();
-//        } else if (resultCode == RESULT_OK && requestCode == REQUEST_CODE_DETAIL) {
-//            // maybe see if there are new tweets?
-//        }
-//    }
-
 
 }

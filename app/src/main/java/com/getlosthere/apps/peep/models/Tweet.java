@@ -159,4 +159,14 @@ public class Tweet extends Model {
         }
         return tweetArrayList;
     }
+
+//    public static List<Tweet> getMentions(User user) {
+//        // This is how you execute a query
+//        return new Select()
+//                .from(Tweet.class)
+//                .where("User = ?", category.getId())
+//                .orderBy("Name ASC")
+//                .execute();
+//    }
+
 }

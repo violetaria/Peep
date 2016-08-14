@@ -1,5 +1,5 @@
 // Generated code from Butter Knife. Do not modify!
-package com.getlosthere.apps.peep.activities;
+package com.getlosthere.apps.peep.fragments;
 
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -12,10 +12,10 @@ import java.lang.IllegalStateException;
 import java.lang.Object;
 import java.lang.Override;
 
-public class ProfileActivity_ViewBinding<T extends ProfileActivity> implements Unbinder {
+public class ProfileHeaderFragment_ViewBinding<T extends ProfileHeaderFragment> implements Unbinder {
   protected T target;
 
-  public ProfileActivity_ViewBinding(T target, Finder finder, Object source) {
+  public ProfileHeaderFragment_ViewBinding(T target, Finder finder, Object source) {
     this.target = target;
 
     target.mIvProfileImage = finder.findRequiredViewAsType(source, R.id.ivProfileImage, "field 'mIvProfileImage'", ImageView.class);
