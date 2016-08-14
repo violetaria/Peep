@@ -28,6 +28,7 @@ proguard-project.txt
 *.ipr
 *.iws
 .gradle/**
+app/build/**
 build/**
 .idea/**
 import-summary.txt
