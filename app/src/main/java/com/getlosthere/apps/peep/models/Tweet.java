@@ -67,6 +67,13 @@ public class Tweet extends Model {
     @Column(name = "FavoritedCount")
     public int favoriteCount;
 
+    @Column(name = "RetweetCount")
+    public int retweetCount;
+
+    public int getRetweetCount() { return retweetCount; };
+
+    public String getRetweetCountString() { return Integer.toString(retweetCount); }
+
     public User getUser(){
         return user;
     }
@@ -118,6 +125,7 @@ public class Tweet extends Model {
             tweet.uid = jsonObject.getLong("id");
             tweet.createdAt = jsonObject.getString("created_at");
             tweet.favoriteCount = jsonObject.getInt("favorite_count");
+            tweet.retweetCount = jsonObject.getInt("retweet_count");
             tweet.user = User.findOrCreateFromJson(jsonObject.getJSONObject("user"));
         } catch (JSONException e) {
             e.printStackTrace();

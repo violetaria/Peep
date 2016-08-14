@@ -11,24 +11,33 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.getlosthere.apps.peep.R;
 import com.getlosthere.apps.peep.activities.DetailActivity;
 import com.getlosthere.apps.peep.activities.ProfileActivity;
 import com.getlosthere.apps.peep.adapters.TweetsAdapter;
+import com.getlosthere.apps.peep.applications.TwitterApplication;
 import com.getlosthere.apps.peep.helpers.ItemClickSupportHelper;
+import com.getlosthere.apps.peep.helpers.NetworkHelper;
 import com.getlosthere.apps.peep.listeners.EndlessRecyclerViewScrollListener;
 import com.getlosthere.apps.peep.models.Tweet;
+import com.getlosthere.apps.peep.rest_clients.TwitterClient;
+import com.loopj.android.http.JsonHttpResponseHandler;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import cz.msebera.android.httpclient.Header;
 
 /**
  * Created by violetaria on 8/9/16.
@@ -41,6 +50,7 @@ public abstract class TweetsListFragment extends Fragment implements ComposeDial
     @BindView(R.id.fab) FloatingActionButton btnFab;
     @BindView(R.id.main_fragment_content) CoordinatorLayout coordinatorLayout;
     @BindView(R.id.design_bottom_sheet) RecyclerView rvBottomSheet;
+    private TwitterClient client;
 
     private final int REQUEST_CODE_DETAIL = 40;
     //ProgressBar pb;
@@ -52,6 +62,7 @@ public abstract class TweetsListFragment extends Fragment implements ComposeDial
         View contentView = inflater.inflate(R.layout.fragment_tweets_list, container, false);
         ButterKnife.bind(this,contentView);
         setupView(contentView);
+        client = TwitterApplication.getRestClient();
         return contentView;
     }
 
@@ -81,6 +92,37 @@ public abstract class TweetsListFragment extends Fragment implements ComposeDial
 
                 myDialog.setTargetFragment(TweetsListFragment.this, 100);
                 myDialog.show(fm, "fragment_compose_dialog");
+            }
+
+            public void retweetTweet(long tweetId){
+                if (NetworkHelper.isOnline() && NetworkHelper.isNetworkAvailable(getActivity())) {
+                    client.postRetweet(tweetId, new JsonHttpResponseHandler() {
+                        @Override
+                        public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                            Tweet newTweet = Tweet.fromJSONObject(response);
+                            add(newTweet);
+                        }
+
+                        @Override
+                        public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                            Log.d("DEBUG", "STATUS CODE = " + Integer.toString(statusCode));
+                            Log.d("DEBUG", responseString);
+                        }
+
+                        @Override
+                        public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONArray errorResponse) {
+                            Log.d("DEBUG", "STATUS CODE = " + Integer.toString(statusCode));
+                            Log.d("DEBUG", errorResponse.toString());
+                        }
+
+                        @Override
+                        public void onUserException(Throwable error) {
+                            Log.d("DEBUG", error.toString());
+                        }
+                    });
+                } else {
+                    Toast.makeText(getActivity(), "You're offline, can't retweet. Check your network connection",Toast.LENGTH_LONG).show();
+                }
             }
         });
 
@@ -122,6 +164,7 @@ public abstract class TweetsListFragment extends Fragment implements ComposeDial
         rvBottomSheet.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         final BottomSheetBehavior behavior = BottomSheetBehavior.from(rvBottomSheet);
+
         btnFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

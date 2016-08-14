@@ -3,8 +3,8 @@
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
                                                  xmlns:app="http://schemas.android.com/apk/res-auto"
                                                  android:id="@+id/main_fragment_content"
-                                                 android:layout_width="wrap_content"
-                                                 android:layout_height="wrap_content"
+                                                 android:layout_width="match_parent"
+                                                 android:layout_height="match_parent"
                                                  android:fitsSystemWindows="true">
     <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -29,7 +29,7 @@
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/rvTweets"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"/>
 
         </android.support.v4.widget.SwipeRefreshLayout>
 
@@ -54,10 +54,10 @@
             app:layout_behavior="com.getlosthere.apps.peep.helpers.ScrollAwareFABBehavior" />
 
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/design_bottom_sheet"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_behavior="android.support.design.widget.BottomSheetBehavior"/>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/design_bottom_sheet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_behavior="android.support.design.widget.BottomSheetBehavior"/>
 
-    </android.support.design.widget.CoordinatorLayout>
+</android.support.design.widget.CoordinatorLayout>

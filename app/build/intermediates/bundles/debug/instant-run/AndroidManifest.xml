@@ -24,7 +24,7 @@
             android:value="TweetClient.db" />
         <meta-data
             android:name="AA_DB_VERSION"
-            android:value="2" />
+            android:value="3" />
         <meta-data
             android:name="AA_MODELS"
             android:value="com.getlosthere.apps.peep.models.Tweet,com.getlosthere.apps.peep.models.User" />

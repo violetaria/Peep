@@ -32,29 +32,4 @@
 </RelativeLayout>
 
 
-<!--    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        app:fabSize="normal"
-        android:clickable="true"
-        android:src="@drawable/ic_message_plus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_anchorGravity="bottom|right|end"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_margin="16dp"
-        android:backgroundTint="@color/floating_action_button_color"
-        app:layout_anchor="@id/viewpager"
-        app:borderWidth="0dp"
-        app:layout_behavior="com.getlosthere.apps.peep.helpers.ScrollAwareFABBehavior" />
-
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/design_bottom_sheet"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_behavior="android.support.design.widget.BottomSheetBehavior"
-        />-->
-
 </android.support.design.widget.CoordinatorLayout>

@@ -47,6 +47,7 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
     public static interface ViewHolderListener {
         public void launchProfileActivity(String screenName);
         public void launchReplyDialog(String screenName);
+        public void retweetTweet(long tweetId);
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -57,6 +58,8 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
         public TextView tvPostDate;
         public TextView tvLikeCount;
         public ImageView ivReplyImage;
+        public TextView tvRetweetCount;
+        public ImageView ivRetweetImage;
 
         public interface ViewHolderListener {
 
@@ -72,6 +75,8 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
             tvPostDate = ButterKnife.findById(itemView, R.id.tvPostDate);
             tvLikeCount = ButterKnife.findById(itemView, R.id.tvLikeCount);
             ivReplyImage = ButterKnife.findById(itemView, R.id.ivReply);
+            tvRetweetCount = ButterKnife.findById(itemView, R.id.tvRetweetCount);
+            ivRetweetImage = ButterKnife.findById(itemView, R.id.ivRetweet);
         }
     }
 
@@ -100,6 +105,8 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
         TextView tvPostDate = holder.tvPostDate;
         TextView tvLikeCount = holder.tvLikeCount;
         ImageView ivReplyImage = holder.ivReplyImage;
+        TextView tvRetweetCount = holder.tvRetweetCount;
+        ImageView ivRetweetImage = holder.ivRetweetImage;
 
         // set data up
         tvUsername.setText(tweet.getUser().getName());
@@ -115,6 +122,7 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
         tvScreenName.setText(tweet.getUser().getScreenName());
         tvPostDate.setText(RelativeTimeHelper.getRelativeTimeAgo(tweet.getCreatedAt()));
         tvLikeCount.setText(tweet.getFavoriteCountString());
+        tvRetweetCount.setText(tweet.getRetweetCountString());
 
         // clear out old image for recycle view
         ivProfileImage.setImageResource(android.R.color.transparent);
@@ -133,6 +141,14 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
             public void onClick(View view) {
                 Log.d("DEBUG",view.getTag().toString());
                 listener.launchReplyDialog(view.getTag().toString());
+            }
+        });
+
+        ivRetweetImage.setTag(tweet.getUid());
+        ivRetweetImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.retweetTweet((Long) view.getTag());
             }
         });
     }

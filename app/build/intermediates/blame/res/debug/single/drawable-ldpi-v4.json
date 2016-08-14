@@ -16,6 +16,10 @@
         "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/src/main/res/drawable-ldpi/ic_message_plus.png"
     },
     {
+        "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/retweet.png",
+        "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/src/main/res/drawable-ldpi/retweet.png"
+    },
+    {
         "merged": "/Users/violetaria/AndroidStudioProjects/Peep/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/ic_keyboard_backspace.png",
         "source": "/Users/violetaria/AndroidStudioProjects/Peep/app/src/main/res/drawable-ldpi/ic_keyboard_backspace.png"
     },
