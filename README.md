@@ -2,7 +2,7 @@
 
 **Peep** is an android app that allows a user to view home and mentions timelines, view user profiles with user timelines, as well as compose and post a new tweet. The app utilizes [Twitter REST API](https://dev.twitter.com/rest/public).
 
-Time spent: **XX** hours spent in total, with 21 hours spent on project 3 and XX hours spent on project 4.
+Time spent: **36** hours spent in total, with 21 hours spent on project 3 and 15 hours spent on project 4.
 
 ## User Stories
 
@@ -64,7 +64,7 @@ The following **optional** features are implemented:
 * [x] User can **pull down to refresh tweets timeline**
 * [x] User can **open the twitter app offline and see last loaded tweets**. Persisted in SQLite tweets are refreshed on every application launch. While "live data" is displayed when app can get it from Twitter API, it is also saved for use in offline mode.
 * [x] User can tap a tweet to **open a detailed tweet view**
-* [ ] User can **select "reply" from detail view to respond to a tweet**
+* [x] User can **select "reply" from detail view to respond to a tweet**
 * [ ] Improve the user interface and theme the app to feel "twitter branded"
 
 The following **bonus** features are implemented:
