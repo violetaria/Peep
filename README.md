@@ -89,7 +89,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://github.com/violetaria/Peep/blob/master/peep_recording_1.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://github.com/violetaria/Peep/blob/master/peep_recording_3.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 <img src='https://github.com/violetaria/Peep/blob/master/peep_recording_2.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
