@@ -91,6 +91,8 @@ Here's a walkthrough of implemented user stories:
 
 <img src='https://github.com/violetaria/Peep/blob/master/peep_recording_3.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
+<img src='https://github.com/violetaria/Peep/blob/master/peep_recording_4.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
 <img src='https://github.com/violetaria/Peep/blob/master/peep_recording_2.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
